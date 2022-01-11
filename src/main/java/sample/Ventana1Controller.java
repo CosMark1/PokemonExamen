@@ -83,7 +83,11 @@ public class Ventana1Controller {
 	public void initialize(){
 
 		labelNombre1.setText(p1.nombre);
-
+		labelNombre2.setText(p2.nombre);
+		labelNombre3.setText(p3.nombre);
+		labelNombre4.setText(p4.nombre);
+		labelNombre5.setText(p5.nombre);
+		labelNombre6.setText(p6.nombre);
 	}
 	@FXML
 	private void onButtonAbrirClicked() {
