@@ -33,7 +33,7 @@
 								<Label layoutX="31.0" layoutY="6.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="23.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@ps.PNG" />
+										<Image url="@image/ps.PNG" />
 									</image>
 								</ImageView>
 							</children>
@@ -42,8 +42,9 @@
 					<center>
 						<ImageView fx:id="image1" fitHeight="91.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
-								<Image url="@002.png" />
-							</image></ImageView>
+								<Image url="@image/002.png" />
+							</image>
+						</ImageView>
 					</center>
 					<top>
 						<AnchorPane prefHeight="36.0" prefWidth="200.0" BorderPane.alignment="CENTER">
@@ -61,7 +62,7 @@
 								<Label fx:id="labelNombre14" layoutX="31.0" layoutY="6.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="22.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@ps.PNG" />
+										<Image url="@image/ps.PNG" />
 									</image>
 								</ImageView>
 							</children>
@@ -70,7 +71,7 @@
 					<center>
 						<ImageView fx:id="image3" fitHeight="91.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
-								<Image url="@009.png" />
+								<Image url="@image/009.png" />
 							</image></ImageView>
 					</center>
 					<top>
@@ -90,7 +91,7 @@
 								<Label fx:id="labelNombre141" layoutX="31.0" layoutY="6.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="23.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@ps.PNG" />
+										<Image url="@image/ps.PNG" />
 									</image>
 								</ImageView>
 							</children>
@@ -107,7 +108,7 @@
 					<center>
 						<ImageView fx:id="image2" fitHeight="91.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
-								<Image url="@005.png" />
+								<Image url="@image/005.png" />
 							</image></ImageView>
 					</center>
 				</BorderPane>
@@ -119,7 +120,7 @@
 								<Label fx:id="labelNombre142" layoutX="31.0" layoutY="6.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="21.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@ps.PNG" />
+										<Image url="@image/ps.PNG" />
 									</image>
 								</ImageView>
 							</children>
@@ -136,7 +137,7 @@
 					<center>
 						<ImageView fx:id="image4" fitHeight="91.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
-								<Image url="@037.png" />
+								<Image url="@image/037.png" />
 							</image></ImageView>
 					</center>
 				</BorderPane>
@@ -148,7 +149,7 @@
 								<Label fx:id="labelNombre143" layoutX="31.0" layoutY="6.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="23.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@ps.PNG" />
+										<Image url="@image/ps.PNG" />
 									</image>
 								</ImageView>
 							</children>
@@ -165,7 +166,7 @@
 					<center>
 						<ImageView fx:id="image5" fitHeight="91.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
-								<Image url="@027.png" />
+								<Image url="@image/027.png" />
 							</image></ImageView>
 					</center>
 				</BorderPane>
@@ -177,7 +178,7 @@
 								<Label fx:id="labelNombre1431" layoutX="31.0" layoutY="6.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="23.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
 									<image>
-										<Image url="@ps.PNG" />
+										<Image url="@image/ps.PNG" />
 									</image>
 								</ImageView>
 							</children>
@@ -194,7 +195,7 @@
 					<center>
 						<ImageView fx:id="image6" fitHeight="91.0" fitWidth="155.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
-								<Image url="@058.png" />
+								<Image url="@image/058.png" />
 							</image></ImageView>
 					</center>
 				</BorderPane>
