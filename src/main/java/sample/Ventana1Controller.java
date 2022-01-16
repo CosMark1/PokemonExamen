@@ -6,8 +6,7 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.io.File;
-import java.util.Objects;
+
 
 
 public class Ventana1Controller {
@@ -15,12 +14,12 @@ public class Ventana1Controller {
 
 
 	@FXML
-	Pokemon p1 = new Pokemon("Bulbasaur", "204"+"/"+"204" , "Nv 65", "/image/002.png");
-	Pokemon p2 = new Pokemon("Pedro", "148"+"/"+"204", "Nv 45","/image/005.png");
-	Pokemon p3 = new Pokemon("Pedro", "234", "Nv 54", "/image/009.png");
-	Pokemon p4 = new Pokemon("Pedro", "222" , "Nv 65", "/image/027.png");
-	Pokemon p5 = new Pokemon("Pedro", "298", "Nv 75","/image/037.png");
-	Pokemon p6 = new Pokemon("Pedro", "160", "Nv 54", "/image/058.png");
+	Pokemon p1 = new Pokemon("Bulbasaur", "204/204" , "Nv 65", "/image/002.png");
+	Pokemon p2 = new Pokemon("Pedro", "148/204", "Nv 45","/image/005.png");
+	Pokemon p3 = new Pokemon("Pedro", "148/204", "Nv 54", "/image/009.png");
+	Pokemon p4 = new Pokemon("Pedro", "148/204" , "Nv 65", "/image/027.png");
+	Pokemon p5 = new Pokemon("Pedro", "148/204", "Nv 75","/image/037.png");
+	Pokemon p6 = new Pokemon("Pedro", "148/204", "Nv 54", "/image/058.png");
 
 
 
@@ -63,7 +62,6 @@ public class Ventana1Controller {
 	Label labelNivel5;
 	@FXML
 	Label labelNivel6;
-
 	@FXML
 	ProgressBar progressBar1;
 	@FXML
@@ -95,6 +93,12 @@ public class Ventana1Controller {
 		labelNivel4.setText(p4.nivel);
 		labelNivel5.setText(p5.nivel);
 		labelNivel6.setText(p6.nivel);
+		labelVida1.setText(p1.vida);
+		labelVida2.setText(p2.vida);
+		labelVida3.setText(p3.vida);
+		labelVida4.setText(p4.vida);
+		labelVida5.setText(p5.vida);
+		labelVida6.setText(p6.vida);
 		image1.setImage(new Image(p1.imagenDelantera));
 		image2.setImage(new Image(p2.imagenDelantera));
 		image3.setImage(new Image(p3.imagenDelantera));
