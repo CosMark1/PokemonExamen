@@ -121,6 +121,7 @@ public class Ventana1Controller {
 
 	@FXML
 	private void onMouseClickedPokemon1() {
+		reiniciar();
 		labelNombre1.setStyle("-fx-text-fill: blue;");
 		labelNivel1.setStyle("-fx-text-fill: blue;");
 		labelVida1.setStyle("-fx-text-fill: blue;");
@@ -129,6 +130,7 @@ public class Ventana1Controller {
 	}
 	@FXML
 	private void onMouseClickedPokemon2() {
+		reiniciar();
 		labelNombre2.setStyle("-fx-text-fill: blue;");
 		labelNivel2.setStyle("-fx-text-fill: blue;");
 		labelVida2.setStyle("-fx-text-fill: blue;");
@@ -137,6 +139,7 @@ public class Ventana1Controller {
 	}
 	@FXML
 	private void onMouseClickedPokemon3() {
+		reiniciar();
 		labelNombre3.setStyle("-fx-text-fill: blue;");
 		labelNivel3.setStyle("-fx-text-fill: blue;");
 		labelVida3.setStyle("-fx-text-fill: blue;");
@@ -146,6 +149,7 @@ public class Ventana1Controller {
 	}
 	@FXML
 	private void onMouseClickedPokemon4() {
+		reiniciar();
 		labelNombre4.setStyle("-fx-text-fill: blue;");
 		labelNivel4.setStyle("-fx-text-fill: blue;");
 		labelVida4.setStyle("-fx-text-fill: blue;");
@@ -155,6 +159,7 @@ public class Ventana1Controller {
 	}
 	@FXML
 	private void onMouseClickedPokemon5() {
+		reiniciar();
 		labelNombre5.setStyle("-fx-text-fill: blue;");
 		labelNivel5.setStyle("-fx-text-fill: blue;");
 		labelVida5.setStyle("-fx-text-fill: blue;");
@@ -164,6 +169,7 @@ public class Ventana1Controller {
 	}
 	@FXML
 	private void onMouseClickedPokemon6() {
+		reiniciar();
 		labelNombre6.setStyle("-fx-text-fill: blue;");
 		labelNivel6.setStyle("-fx-text-fill: blue;");
 		labelVida6.setStyle("-fx-text-fill: blue;");
@@ -172,6 +178,43 @@ public class Ventana1Controller {
 
 	}
 
+	private void reiniciar(){
+		labelNombre1.setStyle("-fx-text-fill: black;");
+		labelNivel1.setStyle("-fx-text-fill: black;");
+		labelVida1.setStyle("-fx-text-fill: black;");
+		anchorPane1.setStyle("-fx-border-color:  #776495;");
+		anchorPane1.setStyle("-fx-background-color:  #776495;");
+
+		labelNombre2.setStyle("-fx-text-fill: black;");
+		labelNivel2.setStyle("-fx-text-fill: black;");
+		labelVida2.setStyle("-fx-text-fill: black;");
+		anchorPane2.setStyle("-fx-border-color:  #776495;");
+		anchorPane2.setStyle("-fx-background-color:  #776495;");
+
+		labelNombre3.setStyle("-fx-text-fill: black;");
+		labelNivel3.setStyle("-fx-text-fill: black;");
+		labelVida3.setStyle("-fx-text-fill: black;");
+		anchorPane3.setStyle("-fx-border-color:  #776495;");
+		anchorPane3.setStyle("-fx-background-color:  #776495;");
+
+		labelNombre4.setStyle("-fx-text-fill: black;");
+		labelNivel4.setStyle("-fx-text-fill: black;");
+		labelVida4.setStyle("-fx-text-fill: black;");
+		anchorPane4.setStyle("-fx-border-color:  #776495;");
+		anchorPane4.setStyle("-fx-background-color:  #776495;");
+
+		labelNombre5.setStyle("-fx-text-fill: black;");
+		labelNivel5.setStyle("-fx-text-fill: black;");
+		labelVida5.setStyle("-fx-text-fill: black;");
+		anchorPane5.setStyle("-fx-border-color:  #776495;");
+		anchorPane5.setStyle("-fx-background-color:  #776495;");
+
+		labelNombre6.setStyle("-fx-text-fill: black;");
+		labelNivel6.setStyle("-fx-text-fill: black;");
+		labelVida6.setStyle("-fx-text-fill: black;");
+		anchorPane6.setStyle("-fx-border-color:  #776495;");
+		anchorPane6.setStyle("-fx-background-color:  #776495;");
+	}
 }
 class Pokemon {
 	String nombre;
