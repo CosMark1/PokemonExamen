@@ -107,9 +107,47 @@ public class Ventana1Controller {
 		image6.setImage(new Image(p6.imagenDelantera));
 
 	}
+
 	@FXML
-	private void onButtonAbrirClicked() {
-		System.out.println("Botón pulsado");
+	private void onMouseClickedPokemon1() {
+		labelNombre1.setStyle("-fx-text-fill: blue;");
+		labelNivel1.setStyle("-fx-text-fill: blue;");
+		labelVida1.setStyle("-fx-text-fill: blue;");
+
+	}
+	@FXML
+	private void onMouseClickedPokemon2() {
+		labelNombre1.setStyle("-fx-text-fill: blue;");
+		labelNivel1.setStyle("-fx-text-fill: blue;");
+		labelVida1.setStyle("-fx-text-fill: blue;");
+
+	}
+	@FXML
+	private void onMouseClickedPokemon3() {
+		labelNombre1.setStyle("-fx-text-fill: blue;");
+		labelNivel1.setStyle("-fx-text-fill: blue;");
+		labelVida1.setStyle("-fx-text-fill: blue;");
+
+	}
+	@FXML
+	private void onMouseClickedPokemon4() {
+		labelNombre1.setStyle("-fx-text-fill: blue;");
+		labelNivel1.setStyle("-fx-text-fill: blue;");
+		labelVida1.setStyle("-fx-text-fill: blue;");
+
+	}
+	@FXML
+	private void onMouseClickedPokemon5() {
+		labelNombre1.setStyle("-fx-text-fill: blue;");
+		labelNivel1.setStyle("-fx-text-fill: blue;");
+		labelVida1.setStyle("-fx-text-fill: blue;");
+
+	}
+	@FXML
+	private void onMouseClickedPokemon6() {
+		labelNombre1.setStyle("-fx-text-fill: blue;");
+		labelNivel1.setStyle("-fx-text-fill: blue;");
+		labelVida1.setStyle("-fx-text-fill: blue;");
 
 	}
 

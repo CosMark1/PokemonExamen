@@ -25,7 +25,7 @@
 				<RowConstraints maxHeight="199.0" minHeight="10.0" prefHeight="160.0" vgrow="SOMETIMES" />
 			</rowConstraints>
 			<children>
-				<BorderPane prefHeight="145.0" prefWidth="138.0" style="-fx-background-color: #776495;">
+				<BorderPane fx:id="gridPane1" onMouseClicked="#onMouseClickedPokemon1" prefHeight="145.0" prefWidth="138.0" style="-fx-background-color: #776495;">
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
@@ -40,7 +40,7 @@
 						</AnchorPane>
 					</bottom>
 					<center>
-						<ImageView fx:id="image1" fitHeight="91.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
+						<ImageView fx:id="image1" fitHeight="91.0" fitWidth="128.0" onMouseClicked="#onMouseClickedPokemon1" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER">
 							<image>
 								<Image url="@image/002.png" />
 							</image>
@@ -54,7 +54,7 @@
 							</children></AnchorPane>
 					</top>
 				</BorderPane>
-				<BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #776495;" GridPane.columnIndex="2">
+				<BorderPane fx:id="gridPane3" onMouseClicked="#onMouseClickedPokemon3" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #776495;" GridPane.columnIndex="2">
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
@@ -83,7 +83,7 @@
 						</AnchorPane>
 					</top>
 				</BorderPane>
-				<BorderPane prefHeight="168.0" prefWidth="199.0" style="-fx-background-color: #776495;" GridPane.columnIndex="1">
+				<BorderPane fx:id="gridPane2" onMouseClicked="#onMouseClickedPokemon2" prefHeight="168.0" prefWidth="199.0" style="-fx-background-color: #776495;" GridPane.columnIndex="1">
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
@@ -112,7 +112,7 @@
 							</image></ImageView>
 					</center>
 				</BorderPane>
-				<BorderPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #776495;" GridPane.rowIndex="1">
+				<BorderPane fx:id="gridPane4" onMouseClicked="#onMouseClickedPokemon4" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #776495;" GridPane.rowIndex="1">
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
@@ -141,7 +141,7 @@
 							</image></ImageView>
 					</center>
 				</BorderPane>
-				<BorderPane prefHeight="215.0" prefWidth="199.0" style="-fx-background-color: #776495;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+				<BorderPane fx:id="gridPane5" onMouseClicked="#onMouseClickedPokemon5" prefHeight="215.0" prefWidth="199.0" style="-fx-background-color: #776495;" GridPane.columnIndex="1" GridPane.rowIndex="1">
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
@@ -170,7 +170,7 @@
 							</image></ImageView>
 					</center>
 				</BorderPane>
-				<BorderPane prefHeight="29.0" prefWidth="147.0" style="-fx-background-color: #776495;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+				<BorderPane fx:id="gridPane6" onMouseClicked="#onMouseClickedPokemon6" prefHeight="29.0" prefWidth="147.0" style="-fx-background-color: #776495;" GridPane.columnIndex="2" GridPane.rowIndex="1">
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
