@@ -5,8 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-
-
+import javafx.scene.layout.AnchorPane;
 
 
 public class Ventana1Controller {
@@ -76,6 +75,18 @@ public class Ventana1Controller {
 	ImageView image5;
 	@FXML
 	ImageView image6;
+	@FXML
+	AnchorPane anchorPane1;
+	@FXML
+	AnchorPane anchorPane2;
+	@FXML
+	AnchorPane anchorPane3;
+	@FXML
+	AnchorPane anchorPane4;
+	@FXML
+	AnchorPane anchorPane5;
+	@FXML
+	AnchorPane anchorPane6;
 
 
 	@FXML
@@ -113,41 +124,51 @@ public class Ventana1Controller {
 		labelNombre1.setStyle("-fx-text-fill: blue;");
 		labelNivel1.setStyle("-fx-text-fill: blue;");
 		labelVida1.setStyle("-fx-text-fill: blue;");
-
+		anchorPane1.setStyle("-fx-border-color: white;");
+		anchorPane1.setStyle("-fx-background-color: blue;");
 	}
 	@FXML
 	private void onMouseClickedPokemon2() {
-		labelNombre1.setStyle("-fx-text-fill: blue;");
-		labelNivel1.setStyle("-fx-text-fill: blue;");
-		labelVida1.setStyle("-fx-text-fill: blue;");
-
+		labelNombre2.setStyle("-fx-text-fill: blue;");
+		labelNivel2.setStyle("-fx-text-fill: blue;");
+		labelVida2.setStyle("-fx-text-fill: blue;");
+		anchorPane2.setStyle("-fx-border-color: white;");
+		anchorPane2.setStyle("-fx-background-color: blue;");
 	}
 	@FXML
 	private void onMouseClickedPokemon3() {
-		labelNombre1.setStyle("-fx-text-fill: blue;");
-		labelNivel1.setStyle("-fx-text-fill: blue;");
-		labelVida1.setStyle("-fx-text-fill: blue;");
+		labelNombre3.setStyle("-fx-text-fill: blue;");
+		labelNivel3.setStyle("-fx-text-fill: blue;");
+		labelVida3.setStyle("-fx-text-fill: blue;");
+		anchorPane3.setStyle("-fx-border-color: white;");
+		anchorPane3.setStyle("-fx-background-color: blue;");
 
 	}
 	@FXML
 	private void onMouseClickedPokemon4() {
-		labelNombre1.setStyle("-fx-text-fill: blue;");
-		labelNivel1.setStyle("-fx-text-fill: blue;");
-		labelVida1.setStyle("-fx-text-fill: blue;");
+		labelNombre4.setStyle("-fx-text-fill: blue;");
+		labelNivel4.setStyle("-fx-text-fill: blue;");
+		labelVida4.setStyle("-fx-text-fill: blue;");
+		anchorPane4.setStyle("-fx-border-color: white;");
+		anchorPane4.setStyle("-fx-background-color: blue;");
 
 	}
 	@FXML
 	private void onMouseClickedPokemon5() {
-		labelNombre1.setStyle("-fx-text-fill: blue;");
-		labelNivel1.setStyle("-fx-text-fill: blue;");
-		labelVida1.setStyle("-fx-text-fill: blue;");
+		labelNombre5.setStyle("-fx-text-fill: blue;");
+		labelNivel5.setStyle("-fx-text-fill: blue;");
+		labelVida5.setStyle("-fx-text-fill: blue;");
+		anchorPane5.setStyle("-fx-border-color: white;");
+		anchorPane5.setStyle("-fx-background-color: blue;");
 
 	}
 	@FXML
 	private void onMouseClickedPokemon6() {
-		labelNombre1.setStyle("-fx-text-fill: blue;");
-		labelNivel1.setStyle("-fx-text-fill: blue;");
-		labelVida1.setStyle("-fx-text-fill: blue;");
+		labelNombre6.setStyle("-fx-text-fill: blue;");
+		labelNivel6.setStyle("-fx-text-fill: blue;");
+		labelVida6.setStyle("-fx-text-fill: blue;");
+		anchorPane6.setStyle("-fx-border-color: white;");
+		anchorPane6.setStyle("-fx-background-color: blue;");
 
 	}
 
