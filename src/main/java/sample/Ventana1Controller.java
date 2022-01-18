@@ -13,12 +13,12 @@ public class Ventana1Controller {
 
 
 	@FXML
-	Pokemon p1 = new Pokemon("Bulbasaur", "204/204" , "Nv 65", "/image/002.png");
-	Pokemon p2 = new Pokemon("Pedro", "148/204", "Nv 45","/image/005.png");
-	Pokemon p3 = new Pokemon("Pedro", "148/204", "Nv 54", "/image/009.png");
-	Pokemon p4 = new Pokemon("Pedro", "148/204" , "Nv 65", "/image/027.png");
-	Pokemon p5 = new Pokemon("Pedro", "148/204", "Nv 75","/image/037.png");
-	Pokemon p6 = new Pokemon("Pedro", "148/204", "Nv 54", "/image/058.png");
+	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png");
+	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png");
+	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png");
+	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png");
+	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png");
+	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png");
 
 
 
@@ -104,12 +104,12 @@ public class Ventana1Controller {
 		labelNivel4.setText(p4.nivel);
 		labelNivel5.setText(p5.nivel);
 		labelNivel6.setText(p6.nivel);
-		labelVida1.setText(p1.vida);
-		labelVida2.setText(p2.vida);
-		labelVida3.setText(p3.vida);
-		labelVida4.setText(p4.vida);
-		labelVida5.setText(p5.vida);
-		labelVida6.setText(p6.vida);
+		labelVida1.setText(p1.vidaTotal+"/"+p1.vidamaxima);
+		labelVida2.setText(p2.vidaTotal+"/"+p2.vidamaxima);
+		labelVida3.setText(p3.vidaTotal+"/"+p3.vidamaxima);
+		labelVida4.setText(p4.vidaTotal+"/"+p4.vidamaxima);
+		labelVida5.setText(p5.vidaTotal+"/"+p5.vidamaxima);
+		labelVida6.setText(p6.vidaTotal+"/"+p6.vidamaxima);
 		image1.setImage(new Image(p1.imagenDelantera));
 		image2.setImage(new Image(p2.imagenDelantera));
 		image3.setImage(new Image(p3.imagenDelantera));
@@ -218,16 +218,17 @@ public class Ventana1Controller {
 }
 class Pokemon {
 	String nombre;
-	String vida;
+	int vidamaxima;
+	int vidaTotal;
 	String nivel;
 	String imagenDelantera;
 
-	public Pokemon(String nombre, String vida, String nivel, String imagenDelantera) {
+	public Pokemon(String nombre, int vidamaxima,int vidaTotal, String nivel, String imagenDelantera) {
 		this.nombre = nombre;
-		this.vida = vida;
+		this.vidamaxima = vidamaxima;
+		this.vidaTotal = vidaTotal;
 		this.nivel = nivel;
 		this.imagenDelantera =imagenDelantera;
-
 
 	}
 }
