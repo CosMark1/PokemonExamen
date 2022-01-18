@@ -232,12 +232,12 @@
 		</GridPane>
 		<AnchorPane layoutY="383.0" prefHeight="34.0" prefWidth="598.0" style="-fx-background-color: #776495;">
 			<children>
-				<Button layoutX="23.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: #776495;" text="Eligir un Pókemon" textFill="WHITE">
+				<Button fx:id="boton1" layoutX="23.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: #776495;" text="Eligir un Pókemon" textFill="WHITE">
 					<font>
 						<Font size="14.0" />
 					</font>
 				</Button>
-				<Button layoutX="525.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: #776495;" text="Salir" textFill="WHITE">
+				<Button fx:id="boton2" layoutX="525.0" layoutY="-15.0" mnemonicParsing="false" style="-fx-background-color: #776495;" text="Salir" textFill="WHITE">
 					<font>
 						<Font size="14.0" />
 					</font>

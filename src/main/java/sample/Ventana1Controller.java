@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
@@ -87,6 +88,10 @@ public class Ventana1Controller {
 	AnchorPane anchorPane5;
 	@FXML
 	AnchorPane anchorPane6;
+	@FXML
+	Button boton1;
+	@FXML
+	Button boton2;
 
 
 	@FXML
