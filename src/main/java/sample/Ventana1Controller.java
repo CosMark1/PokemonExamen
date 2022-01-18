@@ -132,6 +132,7 @@ public class Ventana1Controller {
 		labelVida1.setStyle("-fx-text-fill: blue;");
 		anchorPane1.setStyle("-fx-border-color: white;");
 		anchorPane1.setStyle("-fx-background-color: blue;");
+		boton1.setStyle("-fx-text-fill: blue");
 	}
 	@FXML
 	private void onMouseClickedPokemon2() {
@@ -141,6 +142,7 @@ public class Ventana1Controller {
 		labelVida2.setStyle("-fx-text-fill: blue;");
 		anchorPane2.setStyle("-fx-border-color: white;");
 		anchorPane2.setStyle("-fx-background-color: blue;");
+		boton1.setStyle("-fx-text-fill: blue");
 	}
 	@FXML
 	private void onMouseClickedPokemon3() {
@@ -150,7 +152,7 @@ public class Ventana1Controller {
 		labelVida3.setStyle("-fx-text-fill: blue;");
 		anchorPane3.setStyle("-fx-border-color: white;");
 		anchorPane3.setStyle("-fx-background-color: blue;");
-
+		boton1.setStyle("-fx-text-fill: blue");
 	}
 	@FXML
 	private void onMouseClickedPokemon4() {
@@ -160,7 +162,7 @@ public class Ventana1Controller {
 		labelVida4.setStyle("-fx-text-fill: blue;");
 		anchorPane4.setStyle("-fx-border-color: white;");
 		anchorPane4.setStyle("-fx-background-color: blue;");
-
+		boton1.setStyle("-fx-text-fill: blue");
 	}
 	@FXML
 	private void onMouseClickedPokemon5() {
@@ -170,7 +172,7 @@ public class Ventana1Controller {
 		labelVida5.setStyle("-fx-text-fill: blue;");
 		anchorPane5.setStyle("-fx-border-color: white;");
 		anchorPane5.setStyle("-fx-background-color: blue;");
-
+		boton1.setStyle("-fx-text-fill: blue");
 	}
 	@FXML
 	private void onMouseClickedPokemon6() {
@@ -180,7 +182,7 @@ public class Ventana1Controller {
 		labelVida6.setStyle("-fx-text-fill: blue;");
 		anchorPane6.setStyle("-fx-border-color: white;");
 		anchorPane6.setStyle("-fx-background-color: blue;");
-
+		boton1.setStyle("-fx-text-fill: blue");
 	}
 
 	private void reiniciar(){
@@ -219,6 +221,7 @@ public class Ventana1Controller {
 		labelVida6.setStyle("-fx-text-fill: black;");
 		anchorPane6.setStyle("-fx-border-color:  #776495;");
 		anchorPane6.setStyle("-fx-background-color:  #776495;");
+
 	}
 }
 class Pokemon {
