@@ -232,7 +232,7 @@
 		</GridPane>
 		<AnchorPane layoutY="383.0" prefHeight="34.0" prefWidth="598.0" style="-fx-background-color: #776495;">
 			<children>
-				<Button fx:id="boton1" layoutX="24.0" layoutY="-1.0" mnemonicParsing="false" style="-fx-background-color: #776495;" text="Eligir un Pókemon" textFill="WHITE">
+				<Button fx:id="boton1" layoutX="24.0" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#OnMouseClickedElegir" style="-fx-background-color: #776495;" text="Eligir un Pókemon" textFill="WHITE">
 					<font>
 						<Font name="System Bold" size="14.0" />
 					</font>

@@ -17,19 +17,20 @@ import java.io.IOException;
 
 public class Ventana1Controller {
 
-	private void abrirVentana(Pokemon pokemon){
+
+	private void abrirVentana(){
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("Ventana2.fxml"));
-			Scene scene = new Scene(fxmlLoader.load());
-			Stage stage = new Stage();
-			stage.setScene(scene);
-			stage.initModality(Modality.APPLICATION_MODAL);
-			stage.showAndWait();
-			labelNombre1.setText(pokemon.nombre);
-			labelNivel1.setText(pokemon.nivel);
-			labelVida1.setText(pokemon.vidaTotal+"/"+pokemon.vidamaxima);
-			image1.setImage(new Image(pokemon.imagenTrasera));
+			fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
+			AnchorPane root = fxmlLoader.load();
+			Scene scene = new Scene(root,600,440);
+			Stage stage2 = new Stage();
+			stage2.setScene(scene);
+			stage2.show();
+			Ventana2Controller a = fxmlLoader.getController();
+			a.enviarPokemon(pokemonSeleccionado);
+
+
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());
 		}
@@ -42,6 +43,7 @@ public class Ventana1Controller {
 	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png","/image/vulpixespaldas.gif");
 	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png","/image/growlitheespaldas.gif");
 
+	Pokemon pokemonSeleccionado= null;
 
 	@FXML
 	Label labelNombre1;
@@ -91,7 +93,6 @@ public class Ventana1Controller {
 	ProgressBar progressBar5;
 	@FXML
 	ProgressBar progressBar6;
-
 
 	@FXML
 	ImageView image1;
@@ -150,6 +151,7 @@ public class Ventana1Controller {
 		image4.setImage(new Image(p4.imagenDelantera));
 		image5.setImage(new Image(p5.imagenDelantera));
 		image6.setImage(new Image(p6.imagenDelantera));
+		progressBar1.setProgress(p1.vidaTotal/p1.vidamaxima);
 
 	}
 
@@ -162,7 +164,7 @@ public class Ventana1Controller {
 		anchorPane1.setStyle("-fx-border-color: white;");
 		anchorPane1.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		abrirVentana(p1);
+		pokemonSeleccionado =p1;
 
 	}
 	@FXML
@@ -174,7 +176,7 @@ public class Ventana1Controller {
 		anchorPane2.setStyle("-fx-border-color: white;");
 		anchorPane2.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		abrirVentana(p2);
+		pokemonSeleccionado =p2;
 	}
 	@FXML
 	private void onMouseClickedPokemon3() {
@@ -185,7 +187,7 @@ public class Ventana1Controller {
 		anchorPane3.setStyle("-fx-border-color: white;");
 		anchorPane3.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		abrirVentana(p3);
+		pokemonSeleccionado =p3;
 	}
 	@FXML
 	private void onMouseClickedPokemon4() {
@@ -196,7 +198,7 @@ public class Ventana1Controller {
 		anchorPane4.setStyle("-fx-border-color: white;");
 		anchorPane4.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		abrirVentana(p4);
+		pokemonSeleccionado =p4;
 	}
 	@FXML
 	private void onMouseClickedPokemon5() {
@@ -207,7 +209,7 @@ public class Ventana1Controller {
 		anchorPane5.setStyle("-fx-border-color: white;");
 		anchorPane5.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		abrirVentana(p5);
+		pokemonSeleccionado =p5;
 	}
 	@FXML
 	private void onMouseClickedPokemon6() {
@@ -218,7 +220,7 @@ public class Ventana1Controller {
 		anchorPane6.setStyle("-fx-border-color: white;");
 		anchorPane6.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		abrirVentana(p6);
+		pokemonSeleccionado =p6;
 	}
 
 	private void reiniciar(){
@@ -259,6 +261,10 @@ public class Ventana1Controller {
 		anchorPane6.setStyle("-fx-background-color:  #776495;");
 
 	}
+	@FXML
+	void OnMouseClickedElegir(){
+		abrirVentana();
+	}
 }
 class Pokemon {
 	String nombre;
@@ -268,6 +274,7 @@ class Pokemon {
 	String imagenDelantera;
 	String imagenTrasera;
 
+
 	public Pokemon(String nombre, int vidamaxima,int vidaTotal, String nivel, String imagenDelantera, String imagenTrasera) {
 		this.nombre = nombre;
 		this.vidamaxima = vidamaxima;
@@ -276,5 +283,53 @@ class Pokemon {
 		this.imagenDelantera =imagenDelantera;
 		this.imagenTrasera=imagenTrasera;
 
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public int getVidamaxima() {
+		return vidamaxima;
+	}
+
+	public void setVidamaxima(int vidamaxima) {
+		this.vidamaxima = vidamaxima;
+	}
+
+	public int getVidaTotal() {
+		return vidaTotal;
+	}
+
+	public void setVidaTotal(int vidaTotal) {
+		this.vidaTotal = vidaTotal;
+	}
+
+	public String getNivel() {
+		return nivel;
+	}
+
+	public void setNivel(String nivel) {
+		this.nivel = nivel;
+	}
+
+	public String getImagenDelantera() {
+		return imagenDelantera;
+	}
+
+	public void setImagenDelantera(String imagenDelantera) {
+		this.imagenDelantera = imagenDelantera;
+	}
+
+	public String getImagenTrasera() {
+		return imagenTrasera;
+	}
+
+	public void setImagenTrasera(String imagenTrasera) {
+		this.imagenTrasera = imagenTrasera;
 	}
 }
