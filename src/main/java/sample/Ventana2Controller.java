@@ -11,7 +11,10 @@ import javafx.scene.layout.AnchorPane;
 public class Ventana2Controller {
 
     @FXML
-    AnchorPane AnchorPane;
+    AnchorPane AnchorPaneAtacar;
+
+    @FXML
+    AnchorPane AnchorPaneSalir;
 
     @FXML
     Button Atacar;
@@ -107,13 +110,32 @@ public class Ventana2Controller {
 
     @FXML
     void onMouseClickedSalir() {
-
+        resetear();
     }
-    @FXML
+
     void cambiar(){
-        AnchorPane.setVisible(true);
+
+        AnchorPaneAtacar.setVisible(false);
+        AtaqueNormal.setVisible(true);
+        AtaqueArriesgado.setVisible(true);
+        AtaqueMuyArriesgado.setVisible(true);
+        Salir.setVisible(true);
+        AnchorPaneSalir.setVisible(true);
+        Atacar.setVisible(false);
+        Cancelar.setVisible(false);
     }
 
+    void resetear(){
+
+        AnchorPaneAtacar.setVisible(true);
+        AtaqueNormal.setVisible(false);
+        AtaqueArriesgado.setVisible(false);
+        AtaqueMuyArriesgado.setVisible(false);
+        Salir.setVisible(false);
+        AnchorPaneSalir.setVisible(false);
+        Atacar.setVisible(true);
+        Cancelar.setVisible(true);
+    }
     public void enviarPokemon(Pokemon pokemon) {
 
         pokemon.setNombre(pokemon.nombre);

@@ -22,7 +22,7 @@ public class Ventana1Controller {
 			FXMLLoader fxmlLoader = new FXMLLoader();
 			fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
 			AnchorPane root = fxmlLoader.load();
-			Scene scene = new Scene(root,600,440);
+			Scene scene = new Scene(root,600,445);
 			Stage stage2 = new Stage();
 			stage2.setScene(scene);
 			stage2.show();
