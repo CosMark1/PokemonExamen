@@ -4,54 +4,56 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
 
 public class Ventana2Controller {
 
     @FXML
-    private Button Atacar;
+    AnchorPane AnchorPane;
 
     @FXML
-    private Button AtaqueArriesgado;
+    Button Atacar;
 
     @FXML
-    private Button AtaqueMuyArriesgado;
+    Button AtaqueArriesgado;
 
     @FXML
-    private Button AtaqueNormal;
+    Button AtaqueMuyArriesgado;
 
     @FXML
-    private Button Cancelar;
+    Button AtaqueNormal;
 
     @FXML
-    private Button Salir;
+    Button Cancelar;
 
     @FXML
-    private ImageView imageDelantera;
+    Button Salir;
 
     @FXML
-    private ImageView imageTrasera;
+    ImageView imageDelantera;
 
     @FXML
-    private Label labelNivel1;
+    ImageView imageTrasera;
 
     @FXML
-    private Label labelNivel2;
+    Label labelNivel1;
 
     @FXML
-    private Label labelNombre1;
+    Label labelNivel2;
 
     @FXML
-    private Label labelNombre2;
+    Label labelNombre1;
 
     @FXML
-    private ProgressBar progressBar1;
+    Label labelNombre2;
 
     @FXML
-    private ProgressBar progressBar2;
+    ProgressBar progressBar1;
+
+    @FXML
+    ProgressBar progressBar2;
 
     @FXML
     public void initialize() {
@@ -109,7 +111,7 @@ public class Ventana2Controller {
     }
     @FXML
     void cambiar(){
-
+        AnchorPane.setStyle("-fx-background-color: #572364");
     }
 
     public void enviarPokemon(Pokemon pokemon) {
