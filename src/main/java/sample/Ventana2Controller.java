@@ -115,7 +115,7 @@ public class Ventana2Controller {
     public void enviarPokemon(Pokemon pokemon) {
 
         pokemon.setNombre(pokemon.nombre);
-        pokemon.setVidamaxima(pokemon.vidamaxima);
+        pokemon.setVidamaxima(pokemon.vidaActual);
         pokemon.setVidaTotal(pokemon.vidaTotal);
         pokemon.setNivel(pokemon.nivel);
         pokemon.setImagenDelantera(pokemon.imagenDelantera);

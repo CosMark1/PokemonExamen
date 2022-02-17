@@ -37,7 +37,7 @@ public class Ventana1Controller {
 	}
 
 	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png","/image/ivysaurespaldas.gif");
-	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png","/image/charmeleonespaldas.gif");
+	Pokemon p2 = new Pokemon("Charmeleon", 150,200, "Nv 45","/image/005.png","/image/charmeleonespaldas.gif");
 	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png","/image/blastoiseespaldas.gif");
 	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png","/image/sandshrewespaldas.gif");
 	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png","/image/vulpixespaldas.gif");
@@ -139,19 +139,24 @@ public class Ventana1Controller {
 		labelNivel4.setText(p4.nivel);
 		labelNivel5.setText(p5.nivel);
 		labelNivel6.setText(p6.nivel);
-		labelVida1.setText(p1.vidaTotal+"/"+p1.vidamaxima);
-		labelVida2.setText(p2.vidaTotal+"/"+p2.vidamaxima);
-		labelVida3.setText(p3.vidaTotal+"/"+p3.vidamaxima);
-		labelVida4.setText(p4.vidaTotal+"/"+p4.vidamaxima);
-		labelVida5.setText(p5.vidaTotal+"/"+p5.vidamaxima);
-		labelVida6.setText(p6.vidaTotal+"/"+p6.vidamaxima);
+		labelVida1.setText(p1.vidaActual+"/"+p1.vidaTotal);
+		labelVida2.setText(p2.vidaActual+"/"+p2.vidaTotal);
+		labelVida3.setText(p3.vidaActual+"/"+p3.vidaTotal);
+		labelVida4.setText(p4.vidaActual+"/"+p4.vidaTotal);
+		labelVida5.setText(p5.vidaActual+"/"+p5.vidaTotal);
+		labelVida6.setText(p6.vidaActual+"/"+p6.vidaTotal);
 		image1.setImage(new Image(p1.imagenDelantera));
 		image2.setImage(new Image(p2.imagenDelantera));
 		image3.setImage(new Image(p3.imagenDelantera));
 		image4.setImage(new Image(p4.imagenDelantera));
 		image5.setImage(new Image(p5.imagenDelantera));
 		image6.setImage(new Image(p6.imagenDelantera));
-		progressBar1.setProgress(p1.vidaTotal/p1.vidamaxima);
+		progressBar1.setProgress(p1.progressbar);
+		progressBar2.setProgress(p2.progressbar);
+		progressBar3.setProgress(p3.progressbar);
+		progressBar4.setProgress(p4.progressbar);
+		progressBar5.setProgress(p5.progressbar);
+		progressBar6.setProgress(p6.progressbar);
 
 	}
 
@@ -263,26 +268,26 @@ public class Ventana1Controller {
 	}
 	@FXML
 	void OnMouseClickedElegir(){
-
 		abrirVentana();
 	}
 }
 class Pokemon {
 	String nombre;
-	int vidamaxima;
+	int vidaActual;
 	int vidaTotal;
 	String nivel;
 	String imagenDelantera;
 	String imagenTrasera;
+	double progressbar;
 
-
-	public Pokemon(String nombre, int vidamaxima,int vidaTotal, String nivel, String imagenDelantera, String imagenTrasera) {
+	public Pokemon(String nombre, int vidaActual,int vidaTotal, String nivel, String imagenDelantera, String imagenTrasera) {
 		this.nombre = nombre;
-		this.vidamaxima = vidamaxima;
+		this.vidaActual = vidaActual;
 		this.vidaTotal = vidaTotal;
 		this.nivel = nivel;
 		this.imagenDelantera =imagenDelantera;
 		this.imagenTrasera=imagenTrasera;
+		this.progressbar= (double) vidaActual/vidaTotal;
 
 	}
 
@@ -295,11 +300,11 @@ class Pokemon {
 	}
 
 	public int getVidamaxima() {
-		return vidamaxima;
+		return vidaActual;
 	}
 
 	public void setVidamaxima(int vidamaxima) {
-		this.vidamaxima = vidamaxima;
+		this.vidaActual = vidamaxima;
 	}
 
 	public int getVidaTotal() {
