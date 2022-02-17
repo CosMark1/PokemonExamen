@@ -102,7 +102,7 @@ public class Ventana2Controller {
 
     @FXML
     void onMouseClickedCancelar() {
-        cambiar();
+
     }
 
     @FXML
@@ -111,7 +111,7 @@ public class Ventana2Controller {
     }
     @FXML
     void cambiar(){
-        AnchorPane.setStyle("-fx-background-color: #572364");
+        AnchorPane.setVisible(true);
     }
 
     public void enviarPokemon(Pokemon pokemon) {
