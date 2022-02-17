@@ -164,7 +164,7 @@ public class Ventana1Controller {
 		anchorPane1.setStyle("-fx-border-color: white;");
 		anchorPane1.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		pokemonSeleccionado =p1;
+		pokemonSeleccionado = p1;
 
 	}
 	@FXML
@@ -176,7 +176,7 @@ public class Ventana1Controller {
 		anchorPane2.setStyle("-fx-border-color: white;");
 		anchorPane2.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		pokemonSeleccionado =p2;
+		pokemonSeleccionado = p2;
 	}
 	@FXML
 	private void onMouseClickedPokemon3() {
@@ -187,7 +187,7 @@ public class Ventana1Controller {
 		anchorPane3.setStyle("-fx-border-color: white;");
 		anchorPane3.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		pokemonSeleccionado =p3;
+		pokemonSeleccionado = p3;
 	}
 	@FXML
 	private void onMouseClickedPokemon4() {
@@ -198,7 +198,7 @@ public class Ventana1Controller {
 		anchorPane4.setStyle("-fx-border-color: white;");
 		anchorPane4.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		pokemonSeleccionado =p4;
+		pokemonSeleccionado = p4;
 	}
 	@FXML
 	private void onMouseClickedPokemon5() {
@@ -209,7 +209,7 @@ public class Ventana1Controller {
 		anchorPane5.setStyle("-fx-border-color: white;");
 		anchorPane5.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		pokemonSeleccionado =p5;
+		pokemonSeleccionado = p5;
 	}
 	@FXML
 	private void onMouseClickedPokemon6() {
@@ -220,7 +220,7 @@ public class Ventana1Controller {
 		anchorPane6.setStyle("-fx-border-color: white;");
 		anchorPane6.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-		pokemonSeleccionado =p6;
+		pokemonSeleccionado = p6;
 	}
 
 	private void reiniciar(){
@@ -263,6 +263,7 @@ public class Ventana1Controller {
 	}
 	@FXML
 	void OnMouseClickedElegir(){
+
 		abrirVentana();
 	}
 }
