@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="315.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
+<AnchorPane prefHeight="440.0" prefWidth="600.0" style="-fx-background-color: #8a389f;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Ventana1Controller">
    <children>
-      <ImageView fitHeight="343.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="343.0" fitWidth="614.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/campo.png" />
          </image>
@@ -21,5 +24,34 @@
             <Image url="@image/grumpigrival.gif" />
          </image>
       </ImageView>
+      <Button fx:id="AtaqueNormal" layoutX="45.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-color: #572364;" text="AtaqueNormal" textFill="WHITE" />
+      <Button fx:id="AtaqueArriesgado" layoutX="237.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-color: #572364;" text="AtaqueArriesgado" textFill="WHITE" />
+      <Button fx:id="AtaqueMuyArriesgado" layoutX="45.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: #572364;" text="AtaqueMuyArriesgado" textFill="WHITE" />
+      <Button fx:id="Salir" layoutX="237.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: #572364;" text="Salir" textFill="WHITE" />
+      <ImageView fitHeight="12.0" fitWidth="17.0" layoutX="61.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/ps.PNG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="12.0" fitWidth="17.0" layoutX="358.0" layoutY="280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/ps.PNG" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="progressBar1" layoutX="79.0" layoutY="63.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+      <ProgressBar fx:id="progressBar2" layoutX="371.0" layoutY="279.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+      <Label fx:id="labelNombre1" layoutX="64.0" layoutY="45.0" text="Label" textFill="WHITE" />
+      <Label fx:id="labelNivel1" layoutX="183.0" layoutY="45.0" text="Label" textFill="WHITE" />
+      <Label fx:id="labelNombre2" layoutX="361.0" layoutY="262.0" text="Label" textFill="WHITE" />
+      <Label fx:id="labelNivel2" layoutX="474.0" layoutY="262.0" text="Label" textFill="WHITE" />
+      <AnchorPane layoutY="343.0" prefHeight="10.0" prefWidth="440.0" style="-fx-background-color: #572364;" />
+      <AnchorPane layoutY="436.0" prefHeight="10.0" prefWidth="440.0" style="-fx-background-color: #572364;" />
+      <AnchorPane layoutY="352.0" prefHeight="94.0" prefWidth="10.0" style="-fx-background-color: #572364;" />
+      <AnchorPane layoutX="423.0" layoutY="352.0" prefHeight="94.0" prefWidth="17.0" style="-fx-background-color: #572364;" />
+      <AnchorPane layoutX="353.0" layoutY="436.0" prefHeight="10.0" prefWidth="247.0" style="-fx-background-color: #572364;" />
+      <AnchorPane layoutX="353.0" layoutY="343.0" prefHeight="10.0" prefWidth="247.0" style="-fx-background-color: #572364;" />
+      <AnchorPane layoutX="586.0" layoutY="352.0" prefHeight="94.0" prefWidth="14.0" style="-fx-background-color: #572364;" />
+      <Button fx:id="Atacar" layoutX="482.0" layoutY="401.0" mnemonicParsing="false" style="-fx-background-color: #572364;" text="Cancelar" textFill="WHITE" />
+      <Button fx:id="Atacar" layoutX="488.0" layoutY="360.0" mnemonicParsing="false" style="-fx-background-color: #572364;" text="Atacar" textFill="WHITE" />
    </children>
 </AnchorPane>

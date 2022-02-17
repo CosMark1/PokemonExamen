@@ -1,18 +1,39 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 
 public class Ventana1Controller {
 
-
-	p
+	private void abrirVentana(Pokemon pokemon){
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader();
+			fxmlLoader.setLocation(getClass().getResource("Ventana2.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = new Stage();
+			stage.setScene(scene);
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.showAndWait();
+			labelNombre1.setText(pokemon.nombre);
+			labelNivel1.setText(pokemon.nivel);
+			labelVida1.setText(pokemon.vidaTotal+"/"+pokemon.vidamaxima);
+			image1.setImage(new Image(pokemon.imagenTrasera));
+		} catch (IOException ex) {
+			System.out.println("IO Exception: " + ex.getMessage());
+		}
+	}
 
 	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png","/image/ivysaurespaldas.gif");
 	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png","/image/charmeleonespaldas.gif");
@@ -141,7 +162,7 @@ public class Ventana1Controller {
 		anchorPane1.setStyle("-fx-border-color: white;");
 		anchorPane1.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-
+		abrirVentana(p1);
 
 	}
 	@FXML
@@ -153,6 +174,7 @@ public class Ventana1Controller {
 		anchorPane2.setStyle("-fx-border-color: white;");
 		anchorPane2.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
+		abrirVentana(p2);
 	}
 	@FXML
 	private void onMouseClickedPokemon3() {
@@ -163,6 +185,7 @@ public class Ventana1Controller {
 		anchorPane3.setStyle("-fx-border-color: white;");
 		anchorPane3.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
+		abrirVentana(p3);
 	}
 	@FXML
 	private void onMouseClickedPokemon4() {
@@ -173,6 +196,7 @@ public class Ventana1Controller {
 		anchorPane4.setStyle("-fx-border-color: white;");
 		anchorPane4.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
+		abrirVentana(p4);
 	}
 	@FXML
 	private void onMouseClickedPokemon5() {
@@ -183,6 +207,7 @@ public class Ventana1Controller {
 		anchorPane5.setStyle("-fx-border-color: white;");
 		anchorPane5.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
+		abrirVentana(p5);
 	}
 	@FXML
 	private void onMouseClickedPokemon6() {
@@ -193,7 +218,7 @@ public class Ventana1Controller {
 		anchorPane6.setStyle("-fx-border-color: white;");
 		anchorPane6.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
-
+		abrirVentana(p6);
 	}
 
 	private void reiniciar(){

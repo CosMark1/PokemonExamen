@@ -13,7 +13,7 @@ public class Ventana2Controller {
     @FXML
     public void initialize() {
 
-        imageDelantera.setImage(new Ventana2Controller())
+
     }
 
 }
