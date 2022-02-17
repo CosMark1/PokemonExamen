@@ -62,7 +62,7 @@
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
-								<ProgressBar fx:id="progressBar14" layoutX="40.0" layoutY="5.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+								<ProgressBar fx:id="progressBar3" layoutX="40.0" layoutY="5.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
 								<Label fx:id="labelVida3" layoutX="31.0" layoutY="14.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="23.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -96,7 +96,7 @@
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
-								<ProgressBar fx:id="progressBar141" layoutX="40.0" layoutY="5.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+								<ProgressBar fx:id="progressBar2" layoutX="40.0" layoutY="5.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
 								<Label fx:id="labelVida2" layoutX="32.0" layoutY="14.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="24.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -130,7 +130,7 @@
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
-								<ProgressBar fx:id="progressBar142" layoutX="39.0" layoutY="5.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+								<ProgressBar fx:id="progressBar4" layoutX="39.0" layoutY="5.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="22.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
 									<image>
 										<Image url="@image/ps.PNG" />
@@ -164,7 +164,7 @@
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
-								<ProgressBar fx:id="progressBar143" layoutX="42.0" layoutY="6.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+								<ProgressBar fx:id="progressBar5" layoutX="42.0" layoutY="6.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
 								<Label fx:id="labelVida5" layoutX="33.0" layoutY="14.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="25.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
 									<image>
@@ -198,7 +198,7 @@
 					<bottom>
 						<AnchorPane prefHeight="44.0" prefWidth="199.0" BorderPane.alignment="CENTER">
 							<children>
-								<ProgressBar fx:id="progressBar1431" layoutX="42.0" layoutY="3.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+								<ProgressBar fx:id="progressBar6" layoutX="42.0" layoutY="3.0" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
 								<Label fx:id="labelVida6" layoutX="33.0" layoutY="14.0" text="Label" />
 								<ImageView fitHeight="12.0" fitWidth="17.0" layoutX="25.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
 									<image>

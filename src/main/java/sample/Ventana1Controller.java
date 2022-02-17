@@ -12,18 +12,14 @@ import javafx.scene.layout.AnchorPane;
 public class Ventana1Controller {
 
 
+	p
 
-	@FXML
 	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png","/image/ivysaurespaldas.gif");
-	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png",);
-	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png",);
-	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png",);
-	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png",);
-	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png",);
-
-
-
-
+	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png","/image/charmeleonespaldas.gif");
+	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png","/image/blastoiseespaldas.gif");
+	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png","/image/sandshrewespaldas.gif");
+	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png","/image/vulpixespaldas.gif");
+	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png","/image/growlitheespaldas.gif");
 
 
 	@FXML
@@ -64,6 +60,18 @@ public class Ventana1Controller {
 	Label labelNivel6;
 	@FXML
 	ProgressBar progressBar1;
+	@FXML
+	ProgressBar progressBar2;
+	@FXML
+	ProgressBar progressBar3;
+	@FXML
+	ProgressBar progressBar4;
+	@FXML
+	ProgressBar progressBar5;
+	@FXML
+	ProgressBar progressBar6;
+
+
 	@FXML
 	ImageView image1;
 	@FXML
@@ -133,6 +141,8 @@ public class Ventana1Controller {
 		anchorPane1.setStyle("-fx-border-color: white;");
 		anchorPane1.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
+
+
 	}
 	@FXML
 	private void onMouseClickedPokemon2() {
@@ -183,6 +193,7 @@ public class Ventana1Controller {
 		anchorPane6.setStyle("-fx-border-color: white;");
 		anchorPane6.setStyle("-fx-background-color: blue;");
 		boton1.setStyle("-fx-text-fill: blue");
+
 	}
 
 	private void reiniciar(){
