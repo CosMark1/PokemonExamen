@@ -14,12 +14,12 @@ public class Ventana1Controller {
 
 
 	@FXML
-	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png");
-	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png");
-	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png");
-	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png");
-	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png");
-	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png");
+	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png","/image/ivysaurespaldas.gif");
+	Pokemon p2 = new Pokemon("Charmeleon", 200,200, "Nv 45","/image/005.png",);
+	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png",);
+	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png",);
+	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png",);
+	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png",);
 
 
 
@@ -230,13 +230,15 @@ class Pokemon {
 	int vidaTotal;
 	String nivel;
 	String imagenDelantera;
+	String imagenTrasera;
 
-	public Pokemon(String nombre, int vidamaxima,int vidaTotal, String nivel, String imagenDelantera) {
+	public Pokemon(String nombre, int vidamaxima,int vidaTotal, String nivel, String imagenDelantera, String imagenTrasera) {
 		this.nombre = nombre;
 		this.vidamaxima = vidamaxima;
 		this.vidaTotal = vidaTotal;
 		this.nivel = nivel;
 		this.imagenDelantera =imagenDelantera;
+		this.imagenTrasera=imagenTrasera;
 
 	}
 }
