@@ -12,6 +12,9 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 
 public class Ventana1Controller {
@@ -27,7 +30,9 @@ public class Ventana1Controller {
 			stage2.setScene(scene);
 			stage2.show();
 			Ventana2Controller a = fxmlLoader.getController();
-			a.enviarPokemon(pokemonSeleccionado);
+
+			Ventana2Controller.enviarPokemon(pokemonSeleccionado);
+
 
 
 		} catch (IOException ex) {
@@ -42,8 +47,51 @@ public class Ventana1Controller {
 	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png","/image/vulpixespaldas.gif");
 	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png","/image/growlitheespaldas.gif");
 
+	Pokemon pR1 = new Pokemon("Arceus", 200, 200, "Nv 65", "/image/arceusrival.gif","");
+	Pokemon pR2 = new Pokemon("Blissey", 200, 200, "Nv 65", "/image/blisseyrival.gif","");
+	Pokemon pR3 = new Pokemon("Grumpig", 200, 200, "Nv 65", "/image/grumpigrival.gif","");
+	Pokemon pR4 = new Pokemon("Hitmontop", 200, 200, "Nv 65", "/image/hitmontoprival.gif","");
 	Pokemon pokemonSeleccionado= null;
+	void elegirPokemon(){
+		List<Pokemon> listaPokemonRivales = new ArrayList<>();
+		listaPokemonRivales.add(pR1);
+		listaPokemonRivales.add(pR2);
+		listaPokemonRivales.add(pR3);
+		listaPokemonRivales.add(pR4);
 
+		do{
+			Random rd = new Random();
+			int p = rd.nextInt(3);
+			Pokemon removedObj = listaPokemonRivales.remove(p);
+			Ventana2Controller.labelNombre1.setText(removedObj.nombre);
+			Ventana2Controller.labelNivel1.setText(removedObj.nivel);
+			Ventana2Controller.progressBar1.setProgress(removedObj.progressbar);
+			Ventana2Controller.imageDelantera.setImage(new Image(removedObj.imagenDelantera));
+
+		}while(listaPokemonRivales.isEmpty());
+
+
+	}
+	void quitarVida(Double cantidad, Pokemon pokemon) {
+
+		if(pokemon.vidaActual>0 ) {
+			Ventana2Controller.progressBar1.setProgress((pokemon.progressbar - cantidad) / pokemon.vidaTotal);
+		}else{
+			progressBar1.setProgress(0);
+		}
+		if(pokemon.vidaActual>0){
+			progressBar2.setProgress((pokemon.progressbar-cantidad)/pokemon.vidaTotal);
+		}else {
+			progressBar2.setProgress(0);
+		}
+		if (pokemon.progressbar<0){
+			pokemon.progressbar=0;
+		}
+
+		if(pokemonRival.progressbar<0){
+			pokemonRival.progressbar=0;
+		}
+	}
 	@FXML
 	Label labelNombre1;
 	@FXML

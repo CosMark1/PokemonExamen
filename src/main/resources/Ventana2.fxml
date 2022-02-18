@@ -14,12 +14,12 @@
             <Image url="@image/campo.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageDelantera" fitHeight="150.0" fitWidth="200.0" layoutX="79.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageTrasera" fitHeight="150.0" fitWidth="200.0" layoutX="79.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/ivysaurespaldas.gif" />
          </image>
       </ImageView>
-      <ImageView fx:id="imageTrasera" fitHeight="150.0" fitWidth="200.0" layoutX="358.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="imageDelantera" fitHeight="150.0" fitWidth="200.0" layoutX="358.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/grumpigrival.gif" />
          </image>
