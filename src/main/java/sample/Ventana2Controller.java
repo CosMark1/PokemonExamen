@@ -7,7 +7,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 import java.util.Random;
 
@@ -116,7 +115,7 @@ public class Ventana2Controller {
         double max = 25;
         double randomValue = min + (max - min) * rd.nextDouble();
 
-        quitarVida(randomValue,controller.pokemonSeleccionado,pokemones);
+        quitarVida(randomValue,pokemones,pokemones);
         enviarPokemon(pokemones);
         controllerPokemon(controller);
         this.controller.actualizarVidas();
