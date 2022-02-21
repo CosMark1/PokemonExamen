@@ -4,7 +4,6 @@ public class Pokemon {
     String nombre;
     int vidaActual;
     int vidaTotal;
-    int vidaActualRival;
     String nivel;
     String imagenDelantera;
     String imagenTrasera;
@@ -35,15 +34,7 @@ public class Pokemon {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    public int getVidaActual() {
-        if (vidaActual<0){
-            return 0;
-        }else if(vidaActual >vidaTotal){
-            return vidaTotal;
-        }else {
-            return vidaActualRival;
-        }
-    }
+
 
     public double getProgressbar() {
         return progressbar;
@@ -53,11 +44,14 @@ public class Pokemon {
         this.progressbar = progressbar;
     }
 
+    public int getVidaActual() {
+        if (vidaActual<0){
+            return 0;
+        }else return Math.min(vidaActual, vidaTotal);
+    }
+
     public void setVidaActual(int vidaActual) {
         this.vidaActual = vidaActual;
-    }
-    public void setVidamaxima(int vidamaxima) {
-        this.vidaActual = vidamaxima;
     }
 
     public int getVidaTotal() {

@@ -20,7 +20,7 @@ public class Ventana1Controller {
 	public static ArrayList<Pokemon> PokemonArrayEnemigo= new ArrayList<>();
 	public static ArrayList<Integer> ArrayAleatorio= new ArrayList<>();
 	public static int x;
-	public static Stage stage=null;
+
 
 	Pokemon p1 = new Pokemon("IvySaur", 200, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
 	Pokemon p2 = new Pokemon("Charmeleon", 150, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
@@ -303,19 +303,17 @@ public class Ventana1Controller {
 		image4.setImage(new Image(p4.getImagenDelantera()));
 		image5.setImage(new Image(p5.getImagenDelantera()));
 		image6.setImage(new Image(p6.getImagenDelantera()));
-		progressBar1.setProgress(p1.getProgressbar());
-		progressBar2.setProgress(p2.getProgressbar());
-		progressBar3.setProgress(p3.getProgressbar());
-		progressBar4.setProgress(p4.getProgressbar());
-		progressBar5.setProgress(p5.getProgressbar());
-		progressBar6.setProgress(p6.getProgressbar());
+		progressBar1.setProgress((double)p1.getVidaActual()/p1.getVidaTotal());
+		progressBar2.setProgress((double)p2.getVidaActual()/p2.getVidaTotal());
+		progressBar3.setProgress((double)p3.getVidaActual()/p3.getVidaTotal());
+		progressBar4.setProgress((double)p4.getVidaActual()/p4.getVidaTotal());
+		progressBar5.setProgress((double)p5.getVidaActual()/p5.getVidaTotal());
+		progressBar6.setProgress((double)p6.getVidaActual()/p6.getVidaTotal());
 	}
 
 	private void abrirVentana() {
 		try {
-			if (stage == null) {
-				stage = new Stage();
-				stage.setResizable(false);
+
 				FXMLLoader fxmlLoader = new FXMLLoader();
 				fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
 				AnchorPane root = fxmlLoader.load();
@@ -329,7 +327,7 @@ public class Ventana1Controller {
 				a.enviarPokemon(pokemonSeleccionado);
 				a.controllerPokemon(this);
 
-			}
+
 
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());

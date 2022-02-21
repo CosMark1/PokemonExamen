@@ -72,10 +72,7 @@ public class Ventana2Controller {
 
     @FXML
     public void initialize() {
-        labelNombre1.setText(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getNombre());
-        labelNivel1.setText(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getNivel());
-        progressBar1.setProgress(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getProgressbar());
-        imageDelantera.setImage(new Image(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getImagenDelantera()));
+
 
     }
 
@@ -147,6 +144,7 @@ public class Ventana2Controller {
             control();
         }
         pokemones.setVidaActual(pokemones.getVidaActual()-20);
+
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
     }
@@ -187,35 +185,27 @@ public class Ventana2Controller {
     }
 
 
-    private void showAlert(Alert alert) {
-        Optional<ButtonType> resultado = alert.showAndWait();
-        if(resultado.isEmpty()) {
-            System.out.println("Dialogo cerrado con la X");
-        } else if(resultado.get() == ButtonType.OK) {
-            System.out.println("Resultado = OK");
-        } else if (resultado.get() == ButtonType.CANCEL) {
-            System.out.println("Resultado = CANCEL");
-        } else {
-            System.out.println("Resultado = OTROS: " + resultado.get().getText());
-        }
-    }
-
     public void enviarPokemon(Pokemon pokemon) {
 
-        if (pokemon.getProgressbar() <= 0){
+        if (pokemon.getVidaActual() <= 0){
             Alert(pokemon);
         }
         pokemones=pokemon;
 
         pokemon.setNombre(pokemon.getNombre());
-        pokemon.setVidamaxima(pokemon.getVidaActual());
+        pokemon.setVidaActual(pokemon.getVidaActual());
         pokemon.setVidaTotal(pokemon.getVidaTotal());
         pokemon.setNivel(pokemon.getNivel());
         pokemon.setImagenTrasera(pokemon.getImagenTrasera());
         labelNombre2.setText(pokemon.getNombre());
         labelNivel2.setText(pokemon.getNivel());
-        progressBar2.setProgress(pokemon.getProgressbar());
+        progressBar2.setProgress((double) pokemon.getVidaActual()/pokemon.getVidaTotal());
         imageTrasera.setImage(new Image(pokemon.getImagenTrasera()));
+
+        labelNombre1.setText(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getNombre());
+        labelNivel1.setText(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getNivel());
+        progressBar1.setProgress((double)Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()/Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaTotal());
+        imageDelantera.setImage(new Image(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getImagenDelantera()));
 
     }
     public void control(){
