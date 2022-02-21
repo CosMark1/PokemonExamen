@@ -68,6 +68,22 @@ public class Ventana2Controller {
     @FXML
     public void initialize() {
 
+        ArrayList<Pokemon>listaPokemonRivales = new ArrayList<>();
+        listaPokemonRivales.add(controller.pR1);
+        listaPokemonRivales.add(controller.pR2);
+        listaPokemonRivales.add(controller.pR3);
+        listaPokemonRivales.add(controller.pR4);
+        Random rd = new Random();
+        int p = rd.nextInt(3);
+        do{
+            Pokemon removedObj = (Pokemon) listaPokemonRivales.remove(p);
+            labelNombre1.setText(removedObj.nombre);
+            labelNivel1.setText(removedObj.nivel);
+            progressBar1.setProgress(removedObj.progressbar);
+            imageDelantera.setImage(new Image(removedObj.imagenDelantera));
+
+        }while(listaPokemonRivales.isEmpty());
+
     }
 
     @FXML
@@ -102,7 +118,7 @@ public class Ventana2Controller {
         double max = 50;
         double randomValue = min + (max - min) * rd.nextDouble();
 
-        quitarVida(randomValue,controller.,pokemones);
+        quitarVida(randomValue,,pokemones);
         enviarPokemon(pokemones);
         controllerPokemon(controller);
         this.controller.actualizarVidas();
@@ -165,16 +181,6 @@ public class Ventana2Controller {
     }
 
     void elegirPokemon(ArrayList listaPokemonRivales){
-        Random rd = new Random();
-        int p = rd.nextInt(3);
-        do{
-            Pokemon removedObj = (Pokemon) listaPokemonRivales.remove(p);
-            labelNombre1.setText(removedObj.nombre);
-            labelNivel1.setText(removedObj.nivel);
-            progressBar1.setProgress(removedObj.progressbar);
-            imageDelantera.setImage(new Image(removedObj.imagenDelantera));
-
-        }while(listaPokemonRivales.isEmpty());
 
     }
     private void showAlert(Alert alert) {
