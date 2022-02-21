@@ -102,7 +102,8 @@ public class Ventana2Controller {
         double min = 0;
         double max = 50;
         double randomValue = min + (max - min) * rd.nextDouble();
-        quitarVida(randomValue,pokemones);
+
+        quitarVida(randomValue,controller.pokemonSeleccionado,pokemones);
         enviarPokemon(pokemones);
         controllerPokemon(controller);
         this.controller.actualizarVidas();
@@ -115,7 +116,7 @@ public class Ventana2Controller {
         double max = 25;
         double randomValue = min + (max - min) * rd.nextDouble();
 
-        quitarVida(randomValue,pokemones);
+        quitarVida(randomValue,controller.pokemonSeleccionado,pokemones);
         enviarPokemon(pokemones);
         controllerPokemon(controller);
         this.controller.actualizarVidas();
@@ -124,7 +125,7 @@ public class Ventana2Controller {
     @FXML
     void onMouseClickedAtaqueNormal() {
         pokemones.setVidaActual(pokemones.getVidaActual()-20);
-        quitarVida(20.0,pokemones);
+        quitarVida(20.0,controller.pokemonSeleccionado,pokemones);
         enviarPokemon(pokemones);
         controllerPokemon(controller);
         this.controller.actualizarVidas();
@@ -177,7 +178,7 @@ public class Ventana2Controller {
         }while(listaPokemonRivales.isEmpty());
 
     }
-    private void showAlert(Alert alert , String diselo) {
+    private void showAlert(Alert alert) {
         Optional<ButtonType> resultado = alert.showAndWait();
         if(!resultado.isPresent()) {
             System.out.println("Dialogo cerrado con la X");
@@ -190,15 +191,15 @@ public class Ventana2Controller {
         }
     }
 
-    void quitarVida(Double cantidad, Pokemon pokemon) {
+    void quitarVida(Double cantidad, Pokemon pokemonAliado, Pokemon pokemonRival) {
 
-        if (pokemon.progressbar > 0) {
-            progressBar1.setProgress((pokemon.vidaActual - cantidad) / pokemon.vidaTotal);
+        if (pokemonRival.progressbar >= 0) {
+            progressBar1.setProgress((pokemonRival.vidaActual - cantidad) / pokemonRival.vidaTotal);
         }else{
                 progressBar1.setProgress(0);
             }
-            if (pokemon.progressbar > 0) {
-                progressBar2.setProgress((pokemon.vidaActual - cantidad) / pokemon.vidaTotal);
+            if (pokemonAliado.progressbar >= 0) {
+                progressBar2.setProgress((pokemonAliado.vidaActual - cantidad) / pokemonAliado.vidaTotal);
             } else {
                 progressBar2.setProgress(0);
             }
@@ -210,22 +211,22 @@ public class Ventana2Controller {
 
     public void enviarPokemon(Pokemon pokemon) {
 
-        if (pokemones.getProgressbar() <= 0){
-            Alert(pokemones);
+        if (pokemon.getProgressbar() <= 0){
+            Alert(pokemon);
         }
         pokemones=pokemon;
-        float vidaActual = pokemones.getVidaActual();
-        float vidaTotal = pokemones.getVidaTotal();
-        pokemones.setNombre(pokemones.getNombre());
-        pokemones.setVidamaxima(pokemones.getVidaActual());
-        pokemones.setVidaTotal(pokemones.getVidaTotal());
-        pokemones.setNivel(pokemones.getNivel());
-        pokemones.setImagenDelantera(pokemones.getImagenDelantera());
-        pokemones.setImagenTrasera(pokemones.imagenTrasera);
-        labelNombre2.setText(pokemones.getNombre());
-        labelNivel2.setText(pokemones.getNivel());
+        float vidaActual = pokemon.getVidaActual();
+        float vidaTotal = pokemon.getVidaTotal();
+        pokemon.setNombre(pokemon.getNombre());
+        pokemon.setVidamaxima(pokemon.getVidaActual());
+        pokemon.setVidaTotal(pokemon.getVidaTotal());
+        pokemon.setNivel(pokemon.getNivel());
+        pokemon.setImagenDelantera(pokemon.getImagenDelantera());
+        pokemon.setImagenTrasera(pokemon.imagenTrasera);
+        labelNombre2.setText(pokemon.getNombre());
+        labelNivel2.setText(pokemon.getNivel());
         progressBar2.setProgress(vidaActual/vidaTotal);
-        imageTrasera.setImage(new Image(pokemones.getImagenTrasera()));
+        imageTrasera.setImage(new Image(pokemon.getImagenTrasera()));
 
     }
     public void Alert(Pokemon pokemon)  {

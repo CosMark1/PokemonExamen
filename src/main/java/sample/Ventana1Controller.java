@@ -19,8 +19,10 @@ import java.util.Random;
 
 public class Ventana1Controller {
 
-	public static ArrayList<Pokemon> PokemonArray=new ArrayList<Pokemon>();
-
+	public static ArrayList<Pokemon> PokemonArrayEnemigo= new ArrayList<>();
+	public static int x;
+	private static final ArrayList<Pokemon> listaPokemonRivales = new ArrayList<>();
+	private static final ArrayList<Integer> ArrayAleatorio= new ArrayList<>();
 	private void abrirVentana(){
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader();
@@ -32,12 +34,14 @@ public class Ventana1Controller {
 			stage2.show();
 			Ventana2Controller a = fxmlLoader.getController();
 
-
-			ArrayList<Pokemon> listaPokemonRivales = new ArrayList<>();
 			listaPokemonRivales.add(pR1);
 			listaPokemonRivales.add(pR2);
 			listaPokemonRivales.add(pR3);
 			listaPokemonRivales.add(pR4);
+
+			x=new Random().nextInt(listaPokemonRivales.size());
+			ArrayAleatorio.add(x);
+
 			a.enviarPokemon(pokemonSeleccionado);
 			a.controllerPokemon(this);
 			a.elegirPokemon(listaPokemonRivales);
@@ -175,7 +179,6 @@ public class Ventana1Controller {
 		progressBar4.setProgress(p4.progressbar);
 		progressBar5.setProgress(p5.progressbar);
 		progressBar6.setProgress(p6.progressbar);
-
 
 	}
 
