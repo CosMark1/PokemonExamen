@@ -1,19 +1,18 @@
 package sample;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
 
-public class Ventana2Controller<aPR> {
+public class Ventana2Controller {
 
     @FXML
     AnchorPane AnchorPaneAtacar;
@@ -40,40 +39,35 @@ public class Ventana2Controller<aPR> {
     Button Salir;
 
     @FXML
-    static
     ImageView imageDelantera;
 
     @FXML
     ImageView imageTrasera;
 
     @FXML
-    static
     Label labelNivel1;
 
     @FXML
     Label labelNivel2;
 
     @FXML
-    static
+
     Label labelNombre1;
 
     @FXML
     Label labelNombre2;
 
     @FXML
-    static
     ProgressBar progressBar1;
 
     @FXML
     ProgressBar progressBar2;
 
+    private Pokemon pokemones;
+    private Ventana1Controller controller;
+
     @FXML
     public void initialize() {
-
-
-
-
-
 
     }
 
@@ -108,7 +102,10 @@ public class Ventana2Controller<aPR> {
         double min = 0;
         double max = 50;
         double randomValue = min + (max - min) * rd.nextDouble();
-        quitarVida(randomValue,getPokemonRival(),getPokemon());
+        quitarVida(randomValue,pokemones);
+        enviarPokemon(pokemones);
+        controllerPokemon(controller);
+        this.controller.actualizarVidas();
     }
 
     @FXML
@@ -117,12 +114,20 @@ public class Ventana2Controller<aPR> {
         double min = 10;
         double max = 25;
         double randomValue = min + (max - min) * rd.nextDouble();
-        quitarVida(randomValue ,elegirPokemon());
+
+        quitarVida(randomValue,pokemones);
+        enviarPokemon(pokemones);
+        controllerPokemon(controller);
+        this.controller.actualizarVidas();
     }
 
     @FXML
     void onMouseClickedAtaqueNormal() {
-        quitarVida(20.0,getPokemonRival(),getPokemon());
+        pokemones.setVidaActual(pokemones.getVidaActual()-20);
+        quitarVida(20.0,pokemones);
+        enviarPokemon(pokemones);
+        controllerPokemon(controller);
+        this.controller.actualizarVidas();
     }
 
     @FXML
@@ -159,92 +164,91 @@ public class Ventana2Controller<aPR> {
         Cancelar.setVisible(true);
     }
 
-    public static void enviarPokemon(Pokemon pokemon) {
+    void elegirPokemon(ArrayList listaPokemonRivales){
+        Random rd = new Random();
+        int p = rd.nextInt(3);
+        do{
+            Pokemon removedObj = (Pokemon) listaPokemonRivales.remove(p);
+            labelNombre1.setText(removedObj.nombre);
+            labelNivel1.setText(removedObj.nivel);
+            progressBar1.setProgress(removedObj.progressbar);
+            imageDelantera.setImage(new Image(removedObj.imagenDelantera));
 
-        pokemon.setNombre(pokemon.nombre);
-        pokemon.setVidamaxima(pokemon.vidaActual);
-        pokemon.setVidaTotal(pokemon.vidaTotal);
-        pokemon.setNivel(pokemon.nivel);
-        pokemon.setImagenDelantera(pokemon.imagenDelantera);
-        pokemon.setImagenTrasera(pokemon.imagenTrasera);
+        }while(listaPokemonRivales.isEmpty());
 
     }
+    private void showAlert(Alert alert , String diselo) {
+        Optional<ButtonType> resultado = alert.showAndWait();
+        if(!resultado.isPresent()) {
+            System.out.println("Dialogo cerrado con la X");
+        } else if(resultado.get() == ButtonType.OK) {
+            System.out.println("Resultado = OK");
+        } else if (resultado.get() == ButtonType.CANCEL) {
+            System.out.println("Resultado = CANCEL");
+        } else {
+            System.out.println("Resultado = OTROS: " + resultado.get().getText());
+        }
+    }
 
+    void quitarVida(Double cantidad, Pokemon pokemon) {
 
-
-
-
-
-
-
-
-
-
-
-     public class PokemonRival {
-        String nombre;
-        int vidaActual;
-        int vidaTotal;
-        String nivel;
-        String imagen;
-        double progressbar;
-
-        public PokemonRival(String nombre, int vidaActual, int vidaTotal, String nivel, String imagen) {
-            this.nombre = nombre;
-            this.vidaActual = vidaActual;
-            this.vidaTotal = vidaTotal;
-            this.nivel = nivel;
-            this.imagen = imagen;
-            this.progressbar = (double) vidaActual / vidaTotal;
+        if (pokemon.progressbar > 0) {
+            progressBar1.setProgress((pokemon.vidaActual - cantidad) / pokemon.vidaTotal);
+        }else{
+                progressBar1.setProgress(0);
+            }
+            if (pokemon.progressbar > 0) {
+                progressBar2.setProgress((pokemon.vidaActual - cantidad) / pokemon.vidaTotal);
+            } else {
+                progressBar2.setProgress(0);
+            }
+            if (pokemones.progressbar < 0) {
+                pokemones.progressbar = 0;
+            }
 
         }
 
-        public String getNombre() {
-            return nombre;
-        }
+    public void enviarPokemon(Pokemon pokemon) {
 
-        public void setNombre(String nombre) {
-            this.nombre = nombre;
+        if (pokemones.getProgressbar() <= 0){
+            Alert(pokemones);
         }
+        pokemones=pokemon;
+        float vidaActual = pokemones.getVidaActual();
+        float vidaTotal = pokemones.getVidaTotal();
+        pokemones.setNombre(pokemones.getNombre());
+        pokemones.setVidamaxima(pokemones.getVidaActual());
+        pokemones.setVidaTotal(pokemones.getVidaTotal());
+        pokemones.setNivel(pokemones.getNivel());
+        pokemones.setImagenDelantera(pokemones.getImagenDelantera());
+        pokemones.setImagenTrasera(pokemones.imagenTrasera);
+        labelNombre2.setText(pokemones.getNombre());
+        labelNivel2.setText(pokemones.getNivel());
+        progressBar2.setProgress(vidaActual/vidaTotal);
+        imageTrasera.setImage(new Image(pokemones.getImagenTrasera()));
 
-        public int getVidaActual() {
-            return vidaActual;
-        }
+    }
+    public void Alert(Pokemon pokemon)  {
 
-        public void setVidaActual(int vidaActual) {
-            this.vidaActual = vidaActual;
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setHeaderText(null);
+        alert.setTitle("Seguir o no");
+        alert.setContentText("El pokemon "+pokemon.getNombre()+" ha muerto");
+        alert.setGraphic(new ImageView(pokemon.getImagenDelantera()));
+        Optional<ButtonType> action = alert.showAndWait();
+        if (action.get() == ButtonType.OK) {
+            continuarAhora();
+        } else {
+            salir();
         }
+    }
+    public void continuarAhora(){
 
-        public int getVidaTotal() {
-            return vidaTotal;
-        }
-
-        public void setVidaTotal(int vidaTotal) {
-            this.vidaTotal = vidaTotal;
-        }
-
-        public String getNivel() {
-            return nivel;
-        }
-
-        public void setNivel(String nivel) {
-            this.nivel = nivel;
-        }
-
-        public String getImagen() {
-            return imagen;
-        }
-
-        public void setImagen(String imagen) {
-            this.imagen = imagen;
-        }
-
-        public double getProgressbar() {
-            return progressbar;
-        }
-
-        public void setProgressbar(double progressbar) {
-            this.progressbar = progressbar;
-        }
+    }
+    public void salir(){
+        System.exit(0);
+    }
+    public void controllerPokemon(Ventana1Controller ventana1Controller){
+        this.controller= ventana1Controller;
     }
 }
