@@ -5,6 +5,7 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -35,7 +36,10 @@ public class Ventana2Controller {
     Button Cancelar;
 
     @FXML
-    Button Salir;
+    Button Curar;
+
+    @FXML
+    Button Continuar;
 
     @FXML
     ImageView imageDelantera;
@@ -64,25 +68,14 @@ public class Ventana2Controller {
 
     private Pokemon pokemones;
     private Ventana1Controller controller;
+    private Ventana2Controller controller2;
 
     @FXML
     public void initialize() {
-
-        ArrayList<Pokemon>listaPokemonRivales = new ArrayList<>();
-        listaPokemonRivales.add(controller.pR1);
-        listaPokemonRivales.add(controller.pR2);
-        listaPokemonRivales.add(controller.pR3);
-        listaPokemonRivales.add(controller.pR4);
-        Random rd = new Random();
-        int p = rd.nextInt(3);
-        do{
-            Pokemon removedObj = (Pokemon) listaPokemonRivales.remove(p);
-            labelNombre1.setText(removedObj.nombre);
-            labelNivel1.setText(removedObj.nivel);
-            progressBar1.setProgress(removedObj.progressbar);
-            imageDelantera.setImage(new Image(removedObj.imagenDelantera));
-
-        }while(listaPokemonRivales.isEmpty());
+        labelNombre1.setText(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getNombre());
+        labelNivel1.setText(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getNivel());
+        progressBar1.setProgress(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getProgressbar());
+        imageDelantera.setImage(new Image(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getImagenDelantera()));
 
     }
 
@@ -118,9 +111,14 @@ public class Ventana2Controller {
         double max = 50;
         double randomValue = min + (max - min) * rd.nextDouble();
 
-        quitarVida(randomValue,,pokemones);
+        Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValue));
+        if(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()<=0 ){
+            Alert(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x));
+            control();
+        }else {
+            pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValue));
+        }
         enviarPokemon(pokemones);
-        controllerPokemon(controller);
         this.controller.actualizarVidas();
     }
 
@@ -131,28 +129,35 @@ public class Ventana2Controller {
         double max = 25;
         double randomValue = min + (max - min) * rd.nextDouble();
 
-        quitarVida(randomValue,pokemones,pokemones);
+        Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValue));
+        if(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
+            Alert(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x));
+            control();
+        }
+        pokemones.setVidaActual(pokemones.getVidaActual()-20);
         enviarPokemon(pokemones);
-        controllerPokemon(controller);
         this.controller.actualizarVidas();
     }
 
     @FXML
     void onMouseClickedAtaqueNormal() {
+        Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).setVidaActual(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()-20);
+        if(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
+            Alert(Ventana1Controller.PokemonArrayEnemigo.get(Ventana1Controller.x));
+            control();
+        }
         pokemones.setVidaActual(pokemones.getVidaActual()-20);
-        quitarVida(20.0,controller.pokemonSeleccionado,pokemones);
         enviarPokemon(pokemones);
-        controllerPokemon(controller);
         this.controller.actualizarVidas();
     }
 
     @FXML
-    void onMouseClickedCancelar() {
+    void onMouseClickedCurar() {
 
     }
 
     @FXML
-    void onMouseClickedSalir() {
+    void onMouseClickedCancelar() {
         resetear();
     }
 
@@ -162,10 +167,10 @@ public class Ventana2Controller {
         AtaqueNormal.setVisible(true);
         AtaqueArriesgado.setVisible(true);
         AtaqueMuyArriesgado.setVisible(true);
-        Salir.setVisible(true);
+        Cancelar.setVisible(true);
         AnchorPaneSalir.setVisible(true);
         Atacar.setVisible(false);
-        Cancelar.setVisible(false);
+        Curar.setVisible(false);
     }
 
     void resetear() {
@@ -174,18 +179,17 @@ public class Ventana2Controller {
         AtaqueNormal.setVisible(false);
         AtaqueArriesgado.setVisible(false);
         AtaqueMuyArriesgado.setVisible(false);
-        Salir.setVisible(false);
+        Cancelar.setVisible(false);
         AnchorPaneSalir.setVisible(false);
         Atacar.setVisible(true);
-        Cancelar.setVisible(true);
-    }
-
-    void elegirPokemon(ArrayList listaPokemonRivales){
+        Curar.setVisible(true);
 
     }
+
+
     private void showAlert(Alert alert) {
         Optional<ButtonType> resultado = alert.showAndWait();
-        if(!resultado.isPresent()) {
+        if(resultado.isEmpty()) {
             System.out.println("Dialogo cerrado con la X");
         } else if(resultado.get() == ButtonType.OK) {
             System.out.println("Resultado = OK");
@@ -196,43 +200,30 @@ public class Ventana2Controller {
         }
     }
 
-    void quitarVida(Double cantidad, Pokemon pokemonAliado, Pokemon pokemonRival) {
-
-        if (pokemonRival.progressbar >= 0) {
-            progressBar1.setProgress((pokemonRival.vidaActual - cantidad) / pokemonRival.vidaTotal);
-        }else{
-                progressBar1.setProgress(0);
-            }
-            if (pokemonAliado.progressbar >= 0) {
-                progressBar2.setProgress((pokemonAliado.vidaActual - cantidad) / pokemonAliado.vidaTotal);
-            } else {
-                progressBar2.setProgress(0);
-            }
-            if (pokemones.progressbar < 0) {
-                pokemones.progressbar = 0;
-            }
-
-        }
-
     public void enviarPokemon(Pokemon pokemon) {
 
         if (pokemon.getProgressbar() <= 0){
             Alert(pokemon);
         }
         pokemones=pokemon;
-        float vidaActual = pokemon.getVidaActual();
-        float vidaTotal = pokemon.getVidaTotal();
+
         pokemon.setNombre(pokemon.getNombre());
         pokemon.setVidamaxima(pokemon.getVidaActual());
         pokemon.setVidaTotal(pokemon.getVidaTotal());
         pokemon.setNivel(pokemon.getNivel());
-        pokemon.setImagenDelantera(pokemon.getImagenDelantera());
-        pokemon.setImagenTrasera(pokemon.imagenTrasera);
+        pokemon.setImagenTrasera(pokemon.getImagenTrasera());
         labelNombre2.setText(pokemon.getNombre());
         labelNivel2.setText(pokemon.getNivel());
-        progressBar2.setProgress(vidaActual/vidaTotal);
+        progressBar2.setProgress(pokemon.getProgressbar());
         imageTrasera.setImage(new Image(pokemon.getImagenTrasera()));
 
+    }
+    public void control(){
+        Ventana1Controller.x = new Random().nextInt(Ventana1Controller.PokemonArrayEnemigo.size());
+        while(Ventana1Controller.ArrayAleatorio.contains(Ventana1Controller.x)){
+            Ventana1Controller.x = new Random().nextInt(Ventana1Controller.PokemonArrayEnemigo.size());
+        }
+        Ventana1Controller.ArrayAleatorio.add(Ventana1Controller.x);
     }
     public void Alert(Pokemon pokemon)  {
 
@@ -249,7 +240,8 @@ public class Ventana2Controller {
         }
     }
     public void continuarAhora(){
-
+        //Stage stage = (stage) this.Continuar.getScene().getWindow();
+        //stage.close();
     }
     public void salir(){
         System.exit(0);

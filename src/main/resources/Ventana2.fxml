@@ -29,7 +29,7 @@
       <Button fx:id="AtaqueNormal" layoutX="45.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedAtaqueNormal" style="-fx-background-color: #572364;" text="AtaqueNormal" textFill="WHITE" visible="false" />
       <Button fx:id="AtaqueArriesgado" layoutX="237.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedAtaqueArriesgado" style="-fx-background-color: #572364;" text="AtaqueArriesgado" textFill="WHITE" visible="false" />
       <Button fx:id="AtaqueMuyArriesgado" layoutX="45.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedAtaqueMuyArriesgado" style="-fx-background-color: #572364;" text="AtaqueMuyArriesgado" textFill="WHITE" visible="false" />
-      <Button fx:id="Salir" layoutX="237.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedSalir" style="-fx-background-color: #572364;" text="Salir" textFill="WHITE" visible="false" />
+      <Button fx:id="Cancelar" layoutX="237.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedCancelar" style="-fx-background-color: #572364;" text="Cancelar" textFill="WHITE" visible="false" />
       <ImageView fitHeight="12.0" fitWidth="17.0" layoutX="61.0" layoutY="64.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@image/ps.PNG" />
@@ -41,11 +41,11 @@
          </image>
       </ImageView>
       <ProgressBar fx:id="progressBar1" layoutX="79.0" layoutY="63.0" onMouseEntered="#OnMouseEnteredRival" onMouseExited="#OnMouseExitedRival" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
-      <ProgressBar fx:id="progressBar2" layoutX="371.0" layoutY="279.0" onMouseEntered="#OnMouseEnteredPokemon" onMouseExited="#OnMouseExitedPokemon" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
+      <ProgressBar fx:id="progressBar2" layoutX="375.0" layoutY="279.0" onMouseEntered="#OnMouseEnteredPokemon" onMouseExited="#OnMouseExitedPokemon" prefHeight="12.0" prefWidth="141.0" progress="1.0" style="-fx-accent: #95c799;" />
       <Label fx:id="labelNombre1" layoutX="64.0" layoutY="45.0" text="Label" textFill="WHITE" />
       <Label fx:id="labelNivel1" layoutX="183.0" layoutY="45.0" text="Label" textFill="WHITE" />
       <Label fx:id="labelNombre2" layoutX="361.0" layoutY="262.0" text="Label" textFill="WHITE" />
-      <Label fx:id="labelNivel2" layoutX="474.0" layoutY="262.0" text="Label" textFill="WHITE" />
+      <Label fx:id="labelNivel2" layoutX="477.0" layoutY="262.0" text="Label" textFill="WHITE" />
       <AnchorPane layoutY="343.0" prefHeight="10.0" prefWidth="440.0" style="-fx-background-color: #572364;" />
       <AnchorPane layoutY="436.0" prefHeight="10.0" prefWidth="440.0" style="-fx-background-color: #572364;" />
       <AnchorPane layoutY="352.0" prefHeight="94.0" prefWidth="10.0" style="-fx-background-color: #572364;" />
@@ -53,7 +53,7 @@
       <AnchorPane layoutX="353.0" layoutY="436.0" prefHeight="10.0" prefWidth="247.0" style="-fx-background-color: #572364;" />
       <AnchorPane layoutX="353.0" layoutY="343.0" prefHeight="10.0" prefWidth="247.0" style="-fx-background-color: #572364;" />
       <AnchorPane layoutX="586.0" layoutY="352.0" prefHeight="94.0" prefWidth="14.0" style="-fx-background-color: #572364;" />
-      <Button fx:id="Cancelar" layoutX="482.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedCancelar" style="-fx-background-color: #572364;" text="Cancelar" textFill="WHITE" />
+      <Button fx:id="Curar" layoutX="491.0" layoutY="401.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedCurar" style="-fx-background-color: #572364;" text="Curar" textFill="WHITE" />
       <Button fx:id="Atacar" layoutX="488.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#onMouseClickedAtacar" style="-fx-background-color: #572364;" text="Atacar" textFill="WHITE" />
    </children>
 </AnchorPane>

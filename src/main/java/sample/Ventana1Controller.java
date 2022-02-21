@@ -13,49 +13,21 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 
 public class Ventana1Controller {
+	public static ArrayList<Pokemon> PokemonArrayEnemigo= new ArrayList<>();
+	public static ArrayList<Integer> ArrayAleatorio= new ArrayList<>();
+	public static int x;
+	public static Stage stage=null;
 
-	private static final ArrayList<Pokemon> listaPokemonRivales = new ArrayList<>();
-	private static final ArrayList<Integer> ArrayAleatorio= new ArrayList<>();
-	private void abrirVentana(){
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader();
-			fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
-			AnchorPane root = fxmlLoader.load();
-			Scene scene = new Scene(root, 600, 445);
-			Stage stage2 = new Stage();
-			stage2.setScene(scene);
-			stage2.show();
-			Ventana2Controller a = fxmlLoader.getController();
-
-			listaPokemonRivales.add(pR1);
-			listaPokemonRivales.add(pR2);
-			listaPokemonRivales.add(pR3);
-			listaPokemonRivales.add(pR4);
-
-			x=new Random().nextInt(listaPokemonRivales.size());
-			ArrayAleatorio.add(x);
-
-			a.enviarPokemon(pokemonSeleccionado);
-			a.controllerPokemon(this);
-			a.elegirPokemon(listaPokemonRivales);
-
-
-		} catch (IOException ex) {
-			System.out.println("IO Exception: " + ex.getMessage());
-		}
-	}
-
-	Pokemon p1 = new Pokemon("IvySaur", 200,200, "Nv 65", "/image/002.png","/image/ivysaurespaldas.gif");
-	Pokemon p2 = new Pokemon("Charmeleon", 150,200, "Nv 45","/image/005.png","/image/charmeleonespaldas.gif");
-	Pokemon p3 = new Pokemon("Blastoise", 200,200, "Nv 54", "/image/009.png","/image/blastoiseespaldas.gif");
-	Pokemon p4 = new Pokemon("Sandshrew", 200,200 , "Nv 65", "/image/027.png","/image/sandshrewespaldas.gif");
-	Pokemon p5 = new Pokemon("Vulpix", 200,200, "Nv 75","/image/037.png","/image/vulpixespaldas.gif");
-	Pokemon p6 = new Pokemon("Growlithe", 200,200, "Nv 54", "/image/058.png","/image/growlitheespaldas.gif");
+	Pokemon p1 = new Pokemon("IvySaur", 200, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
+	Pokemon p2 = new Pokemon("Charmeleon", 150, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
+	Pokemon p3 = new Pokemon("Blastoise", 200, 200, "Nv 54", "/image/009.png", "/image/blastoiseespaldas.gif");
+	Pokemon p4 = new Pokemon("Sandshrew", 200, 200, "Nv 65", "/image/027.png", "/image/sandshrewespaldas.gif");
+	Pokemon p5 = new Pokemon("Vulpix", 200, 200, "Nv 75", "/image/037.png", "/image/vulpixespaldas.gif");
+	Pokemon p6 = new Pokemon("Growlithe", 200, 200, "Nv 54", "/image/058.png", "/image/growlitheespaldas.gif");
 
 	Pokemon pR1 = new Pokemon("Arceus", 200, 200, "Nv 65", "/image/arceusrival.gif");
 	Pokemon pR2 = new Pokemon("Blissey", 200, 200, "Nv 65", "/image/blisseyrival.gif");
@@ -63,7 +35,7 @@ public class Ventana1Controller {
 	Pokemon pR4 = new Pokemon("Hitmontop", 200, 200, "Nv 65", "/image/hitmontoprival.gif");
 
 
-	Pokemon pokemonSeleccionado= null;
+	Pokemon pokemonSeleccionado = null;
 
 	@FXML
 	Label labelNombre1;
@@ -145,7 +117,14 @@ public class Ventana1Controller {
 
 
 	@FXML
-	public void initialize(){
+	public void initialize() {
+		PokemonArrayEnemigo.add(pR1);
+		PokemonArrayEnemigo.add(pR2);
+		PokemonArrayEnemigo.add(pR3);
+		PokemonArrayEnemigo.add(pR4);
+
+		x=new Random().nextInt(PokemonArrayEnemigo.size());
+		ArrayAleatorio.add(x);
 
 		labelNombre1.setText(p1.nombre);
 		labelNombre2.setText(p2.nombre);
@@ -159,12 +138,12 @@ public class Ventana1Controller {
 		labelNivel4.setText(p4.nivel);
 		labelNivel5.setText(p5.nivel);
 		labelNivel6.setText(p6.nivel);
-		labelVida1.setText(p1.vidaActual+"/"+p1.vidaTotal);
-		labelVida2.setText(p2.vidaActual+"/"+p2.vidaTotal);
-		labelVida3.setText(p3.vidaActual+"/"+p3.vidaTotal);
-		labelVida4.setText(p4.vidaActual+"/"+p4.vidaTotal);
-		labelVida5.setText(p5.vidaActual+"/"+p5.vidaTotal);
-		labelVida6.setText(p6.vidaActual+"/"+p6.vidaTotal);
+		labelVida1.setText(p1.vidaActual + "/" + p1.vidaTotal);
+		labelVida2.setText(p2.vidaActual + "/" + p2.vidaTotal);
+		labelVida3.setText(p3.vidaActual + "/" + p3.vidaTotal);
+		labelVida4.setText(p4.vidaActual + "/" + p4.vidaTotal);
+		labelVida5.setText(p5.vidaActual + "/" + p5.vidaTotal);
+		labelVida6.setText(p6.vidaActual + "/" + p6.vidaTotal);
 		image1.setImage(new Image(p1.imagenDelantera));
 		image2.setImage(new Image(p2.imagenDelantera));
 		image3.setImage(new Image(p3.imagenDelantera));
@@ -192,6 +171,7 @@ public class Ventana1Controller {
 		pokemonSeleccionado = p1;
 
 	}
+
 	@FXML
 	private void onMouseClickedPokemon2() {
 		reiniciar();
@@ -203,6 +183,7 @@ public class Ventana1Controller {
 		boton1.setStyle("-fx-text-fill: blue");
 		pokemonSeleccionado = p2;
 	}
+
 	@FXML
 	private void onMouseClickedPokemon3() {
 		reiniciar();
@@ -214,6 +195,7 @@ public class Ventana1Controller {
 		boton1.setStyle("-fx-text-fill: blue");
 		pokemonSeleccionado = p3;
 	}
+
 	@FXML
 	private void onMouseClickedPokemon4() {
 		reiniciar();
@@ -225,6 +207,7 @@ public class Ventana1Controller {
 		boton1.setStyle("-fx-text-fill: blue");
 		pokemonSeleccionado = p4;
 	}
+
 	@FXML
 	private void onMouseClickedPokemon5() {
 		reiniciar();
@@ -236,6 +219,7 @@ public class Ventana1Controller {
 		boton1.setStyle("-fx-text-fill: blue");
 		pokemonSeleccionado = p5;
 	}
+
 	@FXML
 	private void onMouseClickedPokemon6() {
 		reiniciar();
@@ -248,7 +232,7 @@ public class Ventana1Controller {
 		pokemonSeleccionado = p6;
 	}
 
-	private void reiniciar(){
+	private void reiniciar() {
 		labelNombre1.setStyle("-fx-text-fill: black;");
 		labelNivel1.setStyle("-fx-text-fill: black;");
 		labelVida1.setStyle("-fx-text-fill: black;");
@@ -286,12 +270,14 @@ public class Ventana1Controller {
 		anchorPane6.setStyle("-fx-background-color:  #776495;");
 
 	}
+
 	@FXML
-	void OnMouseClickedElegir(){
+	void OnMouseClickedElegir() {
 		abrirVentana();
-		//elegirPokemon();
+
 	}
-	public void actualizarVidas(){
+
+	public void actualizarVidas() {
 
 		labelNombre1.setText(p1.getNombre());
 		labelNombre2.setText(p2.getNombre());
@@ -305,12 +291,12 @@ public class Ventana1Controller {
 		labelNivel4.setText(p4.getNivel());
 		labelNivel5.setText(p5.getNivel());
 		labelNivel6.setText(p6.getNivel());
-		labelVida1.setText(p1.getVidaActual()+"/"+p1.getVidaTotal());
-		labelVida2.setText(p2.getVidaActual()+"/"+p2.getVidaTotal());
-		labelVida3.setText(p3.getVidaActual()+"/"+p3.getVidaTotal());
-		labelVida4.setText(p4.getVidaActual()+"/"+p4.getVidaTotal());
-		labelVida5.setText(p5.getVidaActual()+"/"+p5.getVidaTotal());
-		labelVida6.setText(p6.getVidaActual()+"/"+p6.getVidaTotal());
+		labelVida1.setText(p1.getVidaActual() + "/" + p1.getVidaTotal());
+		labelVida2.setText(p2.getVidaActual() + "/" + p2.getVidaTotal());
+		labelVida3.setText(p3.getVidaActual() + "/" + p3.getVidaTotal());
+		labelVida4.setText(p4.getVidaActual() + "/" + p4.getVidaTotal());
+		labelVida5.setText(p5.getVidaActual() + "/" + p5.getVidaTotal());
+		labelVida6.setText(p6.getVidaActual() + "/" + p6.getVidaTotal());
 		image1.setImage(new Image(p1.getImagenDelantera()));
 		image2.setImage(new Image(p2.getImagenDelantera()));
 		image3.setImage(new Image(p3.getImagenDelantera()));
@@ -324,110 +310,30 @@ public class Ventana1Controller {
 		progressBar5.setProgress(p5.getProgressbar());
 		progressBar6.setProgress(p6.getProgressbar());
 	}
-}
-class Pokemon {
-	String nombre;
-	int vidaActual;
-	int vidaTotal;
-	String nivel;
-	String imagenDelantera;
-	String imagenTrasera;
-	double progressbar;
+
+	private void abrirVentana() {
+		try {
+			if (stage == null) {
+				stage = new Stage();
+				stage.setResizable(false);
+				FXMLLoader fxmlLoader = new FXMLLoader();
+				fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
+				AnchorPane root = fxmlLoader.load();
+				Scene scene = new Scene(root, 600, 445);
+				Stage stage2 = new Stage();
+				stage2.setScene(scene);
+				stage2.show();
+				Ventana2Controller a = fxmlLoader.getController();
 
 
+				a.enviarPokemon(pokemonSeleccionado);
+				a.controllerPokemon(this);
 
-	public Pokemon(String nombre, int vidaActual, int vidaTotal, String nivel, String imagenDelantera, String imagenTrasera) {
-			this.nombre = nombre;
-			this.vidaActual = vidaActual;
-			this.vidaTotal = vidaTotal;
-			this.nivel = nivel;
-			this.imagenDelantera = imagenDelantera;
-			this.imagenTrasera = imagenTrasera;
-			this.progressbar = (double) vidaActual / vidaTotal;
+			}
+
+		} catch (IOException ex) {
+			System.out.println("IO Exception: " + ex.getMessage());
 		}
-		public Pokemon (String nombre, int vidaActual,int vidaTotal, String nivel, String imagenDelantera){
-		this.nombre = nombre;
-		this.vidaActual = vidaActual;
-		this.vidaTotal = vidaTotal;
-		this.nivel = nivel;
-		this.imagenDelantera =imagenDelantera;
-		this.progressbar= (double) vidaActual/vidaTotal;
-	}
-
-
-	//void quitarVida(Double cantidad, Pokemon pokemon) {
-
-		//if(pokemon.vidaActual>0 ) {
-		//	Ventana2Controller.progressBar1.setProgress((pokemon.progressbar - cantidad) / pokemon.vidaTotal);
-		//}else{
-		//	Ventana2Controller.progressBar1.setProgress(0);
-		//}
-		//if(pokemon.vidaActual>0){
-		//	Ventana2Controller.progressBar2.setProgress((pokemon.progressbar-cantidad)/pokemon.vidaTotal);
-		//}else {
-		//	Ventana2Controller.progressBar2.setProgress(0);
-		//}
-		//if (pokemon.progressbar<0){
-		//	pokemon.progressbar=0;
-		//}
-
-	//}
-
-	public String getNombre() {
-		return nombre;
-	}
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-	public int getVidaActual() {
-		return vidaActual;
-	}
-
-	public double getProgressbar() {
-		return progressbar;
-	}
-
-	public void setProgressbar(double progressbar) {
-		this.progressbar = progressbar;
-	}
-
-	public void setVidaActual(int vidaActual) {
-		this.vidaActual = vidaActual;
-	}
-	public void setVidamaxima(int vidamaxima) {
-		this.vidaActual = vidamaxima;
-	}
-
-	public int getVidaTotal() {
-		return vidaTotal;
-	}
-
-	public void setVidaTotal(int vidaTotal) {
-		this.vidaTotal = vidaTotal;
-	}
-
-	public String getNivel() {
-		return nivel;
-	}
-
-	public void setNivel(String nivel) {
-		this.nivel = nivel;
-	}
-
-	public String getImagenDelantera() {
-		return imagenDelantera;
-	}
-
-	public void setImagenDelantera(String imagenDelantera) {
-		this.imagenDelantera = imagenDelantera;
-	}
-
-	public String getImagenTrasera() {
-		return imagenTrasera;
-	}
-
-	public void setImagenTrasera(String imagenTrasera) {
-		this.imagenTrasera = imagenTrasera;
 	}
 }
+
