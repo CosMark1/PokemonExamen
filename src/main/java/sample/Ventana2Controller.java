@@ -102,7 +102,7 @@ public class Ventana2Controller {
         double max = 50;
         double randomValue = min + (max - min) * rd.nextDouble();
 
-        quitarVida(randomValue,controller.pokemonSeleccionado,pokemones);
+        quitarVida(randomValue,controller.,pokemones);
         enviarPokemon(pokemones);
         controllerPokemon(controller);
         this.controller.actualizarVidas();

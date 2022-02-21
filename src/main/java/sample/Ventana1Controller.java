@@ -19,8 +19,6 @@ import java.util.Random;
 
 public class Ventana1Controller {
 
-	public static ArrayList<Pokemon> PokemonArrayEnemigo= new ArrayList<>();
-	public static int x;
 	private static final ArrayList<Pokemon> listaPokemonRivales = new ArrayList<>();
 	private static final ArrayList<Integer> ArrayAleatorio= new ArrayList<>();
 	private void abrirVentana(){
