@@ -1,8 +1,12 @@
 package sample;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -13,6 +17,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Random;
 
 
@@ -23,7 +28,9 @@ public class Ventana1Controller {
 	public static int x;
 	public static Stage stage2;
 	public static Stage stage3;
-
+	private static int cantidadDanoAliado = 0;
+	private static int cantidadDanoEnemigo = 0;
+	private Ventana2Controller controller2;
 
 	Pokemon p1 = new Pokemon("IvySaur", 40, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
 	Pokemon p2 = new Pokemon("Charmeleon", 99, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
@@ -336,7 +343,10 @@ public class Ventana1Controller {
 					stage2.show();
 					Ventana2Controller a = fxmlLoader.getController();
 
-
+					a.setdanoTotalAliado(cantidadDanoAliado);
+					a.getdanoTotalAliado();
+					a.setdanoTotalEnemigo(cantidadDanoEnemigo);
+					a.getdanoTotalEnemigo();
 					a.enviarPokemon(pokemonSeleccionado);
 					a.controllerPokemon(this);
 
@@ -348,26 +358,39 @@ public class Ventana1Controller {
 	}
 	private void abrirVentanaEstadisticas(){
 		try {
-			if(stage3 == null) {
+
 				FXMLLoader fxmlLoader = new FXMLLoader();
 				fxmlLoader.setLocation(getClass().getResource("/Ventana3.fxml"));
 				AnchorPane root = fxmlLoader.load();
-				Scene scene = new Scene(root, 600, 445);
+				Scene scene = new Scene(new Group(root));
 
 				stage3 = new Stage();
 				stage3.setScene(scene);
 				stage3.show();
-				Ventana3Controller b = fxmlLoader.getController();
+				stage3.setWidth(500);
+				stage3.setHeight(500);
+
+				Ventana3Controller a= fxmlLoader.getController();
+				Ventana3Controller b= fxmlLoader.getController();
 
 
+				ObservableList<PieChart.Data> pieChartData =
+							FXCollections.observableArrayList(
 
+									new PieChart.Data("Enemigo", controller2.getdanoTotalEnemigo()),
+									new PieChart.Data("Aliado", controller2.getdanoTotalAliado()));
 
-			}
+					final PieChart chart = new PieChart(pieChartData);
+					chart.setTitle("Daño Total");
+					((Group) scene.getRoot()).getChildren().add(chart);
 
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());
 		}
 	}
+
+
+
 	private void colorVidas(){
 		if (p1.getVidaActual() <= 50) {
 			progressBar1.setStyle("-fx-accent: red;");
@@ -400,5 +423,6 @@ public class Ventana1Controller {
 			progressBar6.setStyle("-fx-accent: orange;");
 		}
 	}
+
 }
 

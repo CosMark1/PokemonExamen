@@ -8,8 +8,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.Optional;
 import java.util.Random;
 
@@ -40,8 +38,6 @@ public class Ventana2Controller {
     @FXML
     Button Curar;
 
-
-
     @FXML
     ImageView imageDelantera;
 
@@ -69,8 +65,9 @@ public class Ventana2Controller {
 
     private Pokemon pokemones;
     private Ventana1Controller controller;
-    private static int cantidadDanoAliado;
-    private static int cantidadDanoEnemigo;
+    private int cantidadDanoEnemigo;
+    private int cantidadDanoAliado;
+
 
     @FXML
     public void initialize() {
@@ -112,17 +109,14 @@ public class Ventana2Controller {
         double randomValueAliado = min + (max - min) * rd.nextDouble();
         double randomValueEnemigo = min + (max - min) * rd.nextDouble();
 
-
-
-
         Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValueEnemigo));
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0 ){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
-            cantidadDanoEnemigo += (int) randomValueEnemigo;
+            cantidadDanoEnemigo += randomValueEnemigo;
         }else {
             pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValueAliado));
-            cantidadDanoAliado += (int) randomValueAliado;
+            cantidadDanoAliado += randomValueAliado;
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
@@ -143,10 +137,10 @@ public class Ventana2Controller {
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
-            cantidadDanoEnemigo += (int) randomValueEnemigo;
+            cantidadDanoEnemigo += randomValueEnemigo;
         }else{
             pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValueAliado));
-            cantidadDanoAliado += (int) randomValueAliado;
+            cantidadDanoAliado += randomValueAliado;
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
@@ -326,5 +320,18 @@ public class Ventana2Controller {
     }
     public void controllerPokemon(Ventana1Controller ventana1Controller){
         this.controller= ventana1Controller;
+    }
+
+    public void setdanoTotalEnemigo(int cantidadDanoEnemigo) {
+        this.cantidadDanoEnemigo = cantidadDanoEnemigo;
+    }
+    public int getdanoTotalEnemigo() {
+        return cantidadDanoEnemigo;
+    }
+    public void setdanoTotalAliado(int cantidadDanoAliado) {
+        this.cantidadDanoAliado = cantidadDanoAliado;
+    }
+    public int getdanoTotalAliado() {
+        return cantidadDanoEnemigo;
     }
 }
