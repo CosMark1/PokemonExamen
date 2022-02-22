@@ -17,10 +17,12 @@ import java.util.Random;
 
 
 public class Ventana1Controller {
+
 	public static ArrayList<Pokemon> ArrayPokemonEnemigo = new ArrayList<>();
 	public static ArrayList<Integer> PokemonEnemigoAleatorio = new ArrayList<>();
 	public static int x;
 	public static Stage stage2;
+	public static Stage stage3;
 
 
 	Pokemon p1 = new Pokemon("IvySaur", 40, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
@@ -34,7 +36,8 @@ public class Ventana1Controller {
 	Pokemon pR2 = new Pokemon("Blissey", 200, 200, "Nv 65", "/image/blisseyrival.gif");
 	Pokemon pR3 = new Pokemon("Grumpig", 200, 200, "Nv 65", "/image/grumpigrival.gif");
 	Pokemon pR4 = new Pokemon("Hitmontop", 200, 200, "Nv 65", "/image/hitmontoprival.gif");
-
+	Pokemon pR5 = new Pokemon("Raikou",200,200,"Nv 65","/image/raikourival.gif");
+	Pokemon pR6 = new Pokemon("Dialga",200,200,"Nv 65","/image/dialgarival.gif");
 
 	Pokemon pokemonSeleccionado = null;
 
@@ -123,6 +126,8 @@ public class Ventana1Controller {
 		ArrayPokemonEnemigo.add(pR2);
 		ArrayPokemonEnemigo.add(pR3);
 		ArrayPokemonEnemigo.add(pR4);
+		ArrayPokemonEnemigo.add(pR5);
+		ArrayPokemonEnemigo.add(pR6);
 
 		x = new Random().nextInt(ArrayPokemonEnemigo.size());
 		PokemonEnemigoAleatorio.add(x);
@@ -160,7 +165,6 @@ public class Ventana1Controller {
 
 		colorVidas();
 	}
-
 
 	@FXML
 	private void onMouseClickedPokemon1() {
@@ -235,6 +239,15 @@ public class Ventana1Controller {
 		pokemonSeleccionado = p6;
 	}
 
+	@FXML
+	void OnMouseClickedElegir() {
+		abrirVentanaCombate();
+
+	}
+	@FXML
+	void OnMouseClickedEstadisticas(){
+		abrirVentanaEstadisticas();
+	}
 	private void reiniciar() {
 		labelNombre1.setStyle("-fx-text-fill: black;");
 		labelNivel1.setStyle("-fx-text-fill: black;");
@@ -274,12 +287,6 @@ public class Ventana1Controller {
 
 	}
 
-	@FXML
-	void OnMouseClickedElegir() {
-		abrirVentana();
-
-	}
-
 	public void actualizarVidas() {
 
 		labelNombre1.setText(p1.getNombre());
@@ -316,7 +323,7 @@ public class Ventana1Controller {
 		colorVidas();
 	}
 
-	private void abrirVentana() {
+	private void abrirVentanaCombate() {
 		try {
 				if(stage2 == null) {
 					FXMLLoader fxmlLoader = new FXMLLoader();
@@ -334,6 +341,28 @@ public class Ventana1Controller {
 					a.controllerPokemon(this);
 
 				}
+
+		} catch (IOException ex) {
+			System.out.println("IO Exception: " + ex.getMessage());
+		}
+	}
+	private void abrirVentanaEstadisticas(){
+		try {
+			if(stage3 == null) {
+				FXMLLoader fxmlLoader = new FXMLLoader();
+				fxmlLoader.setLocation(getClass().getResource("/Ventana3.fxml"));
+				AnchorPane root = fxmlLoader.load();
+				Scene scene = new Scene(root, 600, 445);
+
+				stage3 = new Stage();
+				stage3.setScene(scene);
+				stage3.show();
+				Ventana3Controller b = fxmlLoader.getController();
+
+
+
+
+			}
 
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());

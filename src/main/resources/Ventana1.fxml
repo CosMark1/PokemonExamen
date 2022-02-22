@@ -237,7 +237,7 @@
 						<Font name="System Bold" size="14.0" />
 					</font>
 				</Button>
-				<Button fx:id="boton2" layoutX="524.0" layoutY="-1.0" mnemonicParsing="false" style="-fx-background-color: #776495;" text="Salir" textFill="WHITE">
+				<Button fx:id="boton2" layoutX="441.0" layoutY="-1.0" mnemonicParsing="false" onMouseClicked="#OnMouseClickedEstadisticas" style="-fx-background-color: #776495;" text="Ver las Estadísticas" textFill="WHITE">
 					<font>
 						<Font name="System Bold" size="14.0" />
 					</font>

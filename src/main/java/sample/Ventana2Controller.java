@@ -225,6 +225,7 @@ public class Ventana2Controller {
         progressBar1.setProgress((double)Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()/Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaTotal());
         imageDelantera.setImage(new Image(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getImagenDelantera()));
 
+
     }
     public void control(){
         Ventana1Controller.x = new Random().nextInt(Ventana1Controller.ArrayPokemonEnemigo.size());
