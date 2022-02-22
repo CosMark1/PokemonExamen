@@ -253,6 +253,8 @@ public class Ventana1Controller {
 	}
 	@FXML
 	void OnMouseClickedEstadisticas(){
+		controller2.setdanoTotalAliado(controller2.getdanoTotalAliado());
+		controller2.setdanoTotalEnemigo(controller2.getdanoTotalEnemigo());
 		abrirVentanaEstadisticas();
 	}
 	private void reiniciar() {
