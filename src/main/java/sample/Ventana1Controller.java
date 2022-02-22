@@ -17,13 +17,14 @@ import java.util.Random;
 
 
 public class Ventana1Controller {
-	public static ArrayList<Pokemon> PokemonArrayEnemigo= new ArrayList<>();
-	public static ArrayList<Integer> ArrayAleatorio= new ArrayList<>();
+	public static ArrayList<Pokemon> ArrayPokemonEnemigo = new ArrayList<>();
+	public static ArrayList<Integer> PokemonEnemigoAleatorio = new ArrayList<>();
 	public static int x;
+	public static Stage stage2;
 
 
-	Pokemon p1 = new Pokemon("IvySaur", 200, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
-	Pokemon p2 = new Pokemon("Charmeleon", 150, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
+	Pokemon p1 = new Pokemon("IvySaur", 40, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
+	Pokemon p2 = new Pokemon("Charmeleon", 99, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
 	Pokemon p3 = new Pokemon("Blastoise", 200, 200, "Nv 54", "/image/009.png", "/image/blastoiseespaldas.gif");
 	Pokemon p4 = new Pokemon("Sandshrew", 200, 200, "Nv 65", "/image/027.png", "/image/sandshrewespaldas.gif");
 	Pokemon p5 = new Pokemon("Vulpix", 200, 200, "Nv 75", "/image/037.png", "/image/vulpixespaldas.gif");
@@ -118,13 +119,13 @@ public class Ventana1Controller {
 
 	@FXML
 	public void initialize() {
-		PokemonArrayEnemigo.add(pR1);
-		PokemonArrayEnemigo.add(pR2);
-		PokemonArrayEnemigo.add(pR3);
-		PokemonArrayEnemigo.add(pR4);
+		ArrayPokemonEnemigo.add(pR1);
+		ArrayPokemonEnemigo.add(pR2);
+		ArrayPokemonEnemigo.add(pR3);
+		ArrayPokemonEnemigo.add(pR4);
 
-		x=new Random().nextInt(PokemonArrayEnemigo.size());
-		ArrayAleatorio.add(x);
+		x = new Random().nextInt(ArrayPokemonEnemigo.size());
+		PokemonEnemigoAleatorio.add(x);
 
 		labelNombre1.setText(p1.nombre);
 		labelNombre2.setText(p2.nombre);
@@ -150,14 +151,16 @@ public class Ventana1Controller {
 		image4.setImage(new Image(p4.imagenDelantera));
 		image5.setImage(new Image(p5.imagenDelantera));
 		image6.setImage(new Image(p6.imagenDelantera));
-		progressBar1.setProgress(p1.progressbar);
-		progressBar2.setProgress(p2.progressbar);
-		progressBar3.setProgress(p3.progressbar);
-		progressBar4.setProgress(p4.progressbar);
-		progressBar5.setProgress(p5.progressbar);
-		progressBar6.setProgress(p6.progressbar);
+		progressBar1.setProgress((double) p1.getVidaActual() / p1.getVidaTotal());
+		progressBar2.setProgress((double) p2.getVidaActual() / p2.getVidaTotal());
+		progressBar3.setProgress((double) p3.getVidaActual() / p3.getVidaTotal());
+		progressBar4.setProgress((double) p4.getVidaActual() / p4.getVidaTotal());
+		progressBar5.setProgress((double) p5.getVidaActual() / p5.getVidaTotal());
+		progressBar6.setProgress((double) p6.getVidaActual() / p6.getVidaTotal());
 
+		colorVidas();
 	}
+
 
 	@FXML
 	private void onMouseClickedPokemon1() {
@@ -303,34 +306,69 @@ public class Ventana1Controller {
 		image4.setImage(new Image(p4.getImagenDelantera()));
 		image5.setImage(new Image(p5.getImagenDelantera()));
 		image6.setImage(new Image(p6.getImagenDelantera()));
-		progressBar1.setProgress((double)p1.getVidaActual()/p1.getVidaTotal());
-		progressBar2.setProgress((double)p2.getVidaActual()/p2.getVidaTotal());
-		progressBar3.setProgress((double)p3.getVidaActual()/p3.getVidaTotal());
-		progressBar4.setProgress((double)p4.getVidaActual()/p4.getVidaTotal());
-		progressBar5.setProgress((double)p5.getVidaActual()/p5.getVidaTotal());
-		progressBar6.setProgress((double)p6.getVidaActual()/p6.getVidaTotal());
+		progressBar1.setProgress((double) p1.getVidaActual() / p1.getVidaTotal());
+		progressBar2.setProgress((double) p2.getVidaActual() / p2.getVidaTotal());
+		progressBar3.setProgress((double) p3.getVidaActual() / p3.getVidaTotal());
+		progressBar4.setProgress((double) p4.getVidaActual() / p4.getVidaTotal());
+		progressBar5.setProgress((double) p5.getVidaActual() / p5.getVidaTotal());
+		progressBar6.setProgress((double) p6.getVidaActual() / p6.getVidaTotal());
+
+		colorVidas();
 	}
 
 	private void abrirVentana() {
 		try {
+				if(stage2 == null) {
+					FXMLLoader fxmlLoader = new FXMLLoader();
+					fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
+					AnchorPane root = fxmlLoader.load();
+					Scene scene = new Scene(root, 600, 445);
 
-				FXMLLoader fxmlLoader = new FXMLLoader();
-				fxmlLoader.setLocation(getClass().getResource("/Ventana2.fxml"));
-				AnchorPane root = fxmlLoader.load();
-				Scene scene = new Scene(root, 600, 445);
-				Stage stage2 = new Stage();
-				stage2.setScene(scene);
-				stage2.show();
-				Ventana2Controller a = fxmlLoader.getController();
-
-
-				a.enviarPokemon(pokemonSeleccionado);
-				a.controllerPokemon(this);
+					stage2 = new Stage();
+					stage2.setScene(scene);
+					stage2.show();
+					Ventana2Controller a = fxmlLoader.getController();
 
 
+					a.enviarPokemon(pokemonSeleccionado);
+					a.controllerPokemon(this);
+
+				}
 
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());
+		}
+	}
+	private void colorVidas(){
+		if (p1.getVidaActual() <= 50) {
+			progressBar1.setStyle("-fx-accent: red;");
+		} else if (p1.getVidaActual() <= 100) {
+			progressBar1.setStyle("-fx-accent: orange;");
+		}
+		if (p2.getVidaActual() <= 50) {
+			progressBar2.setStyle("-fx-accent: red;");
+		} else if (p2.getVidaActual() <= 100) {
+			progressBar2.setStyle("-fx-accent: orange;");
+		}
+		if (p3.getVidaActual() <= 50) {
+			progressBar3.setStyle("-fx-accent: red;");
+		} else if (p3.getVidaActual() <= 100) {
+			progressBar3.setStyle("-fx-accent: orange;");
+		}
+		if (p4.getVidaActual() <= 50) {
+			progressBar4.setStyle("-fx-accent: red;");
+		} else if (p4.getVidaActual() <= 100) {
+			progressBar4.setStyle("-fx-accent: orange;");
+		}
+		if (p5.getVidaActual() <= 50) {
+			progressBar5.setStyle("-fx-accent: red;");
+		} else if (p5.getVidaActual() <= 100) {
+			progressBar5.setStyle("-fx-accent: orange;");
+		}
+		if (p6.getVidaActual() <= 50) {
+			progressBar6.setStyle("-fx-accent: red;");
+		} else if (p6.getVidaActual() <= 100) {
+			progressBar6.setStyle("-fx-accent: orange;");
 		}
 	}
 }
