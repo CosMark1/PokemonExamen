@@ -69,7 +69,8 @@ public class Ventana2Controller {
 
     private Pokemon pokemones;
     private Ventana1Controller controller;
-
+    private static int cantidadDanoAliado;
+    private static int cantidadDanoEnemigo;
 
     @FXML
     public void initialize() {
@@ -108,14 +109,20 @@ public class Ventana2Controller {
         Random rd = new Random();
         double min = 0;
         double max = 50;
-        double randomValue = min + (max - min) * rd.nextDouble();
+        double randomValueAliado = min + (max - min) * rd.nextDouble();
+        double randomValueEnemigo = min + (max - min) * rd.nextDouble();
 
-        Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValue));
+
+
+
+        Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValueEnemigo));
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0 ){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
+            cantidadDanoEnemigo += (int) randomValueEnemigo;
         }else {
-            pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValue));
+            pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValueAliado));
+            cantidadDanoAliado += (int) randomValueAliado;
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
@@ -127,14 +134,19 @@ public class Ventana2Controller {
         Random rd = new Random();
         double min = 10;
         double max = 25;
-        double randomValue = min + (max - min) * rd.nextDouble();
+        double randomValueAliado = min + (max - min) * rd.nextDouble();
+        double randomValueEnemigo = min + (max - min) * rd.nextDouble();
 
-        Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValue));
+
+
+        Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValueEnemigo));
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
-        }{
-            pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValue));
+            cantidadDanoEnemigo += (int) randomValueEnemigo;
+        }else{
+            pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValueAliado));
+            cantidadDanoAliado += (int) randomValueAliado;
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
@@ -143,12 +155,15 @@ public class Ventana2Controller {
     @FXML
     void onMouseClickedAtaqueNormal() {
         cambiar();
+
         Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-20));
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
+            cantidadDanoAliado+=20;
         }else {
             pokemones.setVidaActual((pokemones.getVidaActual() - 20));
+            cantidadDanoEnemigo+=20;
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
