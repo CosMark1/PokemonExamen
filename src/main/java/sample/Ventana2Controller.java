@@ -69,7 +69,7 @@ public class Ventana2Controller {
 
     private Pokemon pokemones;
     private Ventana1Controller controller;
-    private Ventana2Controller controller2;
+
 
     @FXML
     public void initialize() {
@@ -225,8 +225,11 @@ public class Ventana2Controller {
         progressBar1.setProgress((double)Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()/Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaTotal());
         imageDelantera.setImage(new Image(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getImagenDelantera()));
 
+        colorVida(pokemon);
 
     }
+
+
     public void control(){
         Ventana1Controller.x = new Random().nextInt(Ventana1Controller.ArrayPokemonEnemigo.size());
         while(Ventana1Controller.PokemonEnemigoAleatorio.contains(Ventana1Controller.x)){
@@ -246,6 +249,18 @@ public class Ventana2Controller {
             continuarAhora();
         } else {
             salir();
+        }
+    }
+    public void colorVida(Pokemon pokemones){
+        if(pokemones.getVidaActual()<=50){
+            progressBar2.setStyle("-fx-accent: red;");
+        }else if (pokemones.getVidaActual() <= 100) {
+            progressBar2.setStyle("-fx-accent: orange;");
+        }
+        if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=50) {
+            progressBar1.setStyle("-fx-accent: orange;");
+        }else if (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual() <= 100) {
+            progressBar1.setStyle("-fx-accent: orange;");
         }
     }
     public void showAlert1(Alert alert){
