@@ -427,13 +427,7 @@ public class Ventana1Controller {
 		System.out.println(cantidadDanoEnemigo);
 		controller3.getDanoEnemigo(cantidadDanoEnemigo);
 	}
-	public void Ventana3Controller(Ventana3Controller ventana3Controller) {
 
-		FXMLLoader fxmlLoader = new FXMLLoader();
-		fxmlLoader.setLocation(getClass().getResource("/Ventana3.fxml"));
-		Ventana3Controller a= fxmlLoader.getController();
-		this.controller3 = ventana3Controller;
-	}
 
 }
 
