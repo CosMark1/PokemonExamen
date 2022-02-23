@@ -1,12 +1,8 @@
 package sample;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -17,7 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Random;
 
 
@@ -30,7 +25,7 @@ public class Ventana1Controller {
 	public static Stage stage3;
 	private static int cantidadDanoAliado = 0;
 	private static int cantidadDanoEnemigo = 0;
-	private Ventana2Controller controller2;
+	Ventana3Controller controller3;
 
 	Pokemon p1 = new Pokemon("IvySaur", 40, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
 	Pokemon p2 = new Pokemon("Charmeleon", 99, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
@@ -125,6 +120,8 @@ public class Ventana1Controller {
 	Button boton1;
 	@FXML
 	Button boton2;
+
+
 
 
 	@FXML
@@ -253,9 +250,9 @@ public class Ventana1Controller {
 	}
 	@FXML
 	void OnMouseClickedEstadisticas(){
-		controller2.setdanoTotalAliado(controller2.getdanoTotalAliado());
-		controller2.setdanoTotalEnemigo(controller2.getdanoTotalEnemigo());
-		abrirVentanaEstadisticas();
+
+			abrirVentanaEstadisticas();
+
 	}
 	private void reiniciar() {
 		labelNombre1.setStyle("-fx-text-fill: black;");
@@ -346,9 +343,9 @@ public class Ventana1Controller {
 					Ventana2Controller a = fxmlLoader.getController();
 
 					a.setdanoTotalAliado(cantidadDanoAliado);
-					a.getdanoTotalAliado();
+					a.getdanoTotalAliado(0);
 					a.setdanoTotalEnemigo(cantidadDanoEnemigo);
-					a.getdanoTotalEnemigo();
+					a.getdanoTotalEnemigo(0);
 					a.enviarPokemon(pokemonSeleccionado);
 					a.controllerPokemon(this);
 
@@ -364,27 +361,20 @@ public class Ventana1Controller {
 				FXMLLoader fxmlLoader = new FXMLLoader();
 				fxmlLoader.setLocation(getClass().getResource("/Ventana3.fxml"));
 				AnchorPane root = fxmlLoader.load();
-				Scene scene = new Scene(new Group(root));
+				Scene scene = new Scene( root,700, 445);
 
 				stage3 = new Stage();
 				stage3.setScene(scene);
 				stage3.show();
-				stage3.setWidth(500);
-				stage3.setHeight(500);
+
+
 
 				Ventana3Controller a= fxmlLoader.getController();
-				Ventana3Controller b= fxmlLoader.getController();
 
+				a.controllerEstadisticas(this);
+				a.setdanoTotalAliado(cantidadDanoAliado);
+				a.setdanoTotalEnemigo(cantidadDanoEnemigo);
 
-				ObservableList<PieChart.Data> pieChartData =
-							FXCollections.observableArrayList(
-
-									new PieChart.Data("Enemigo", controller2.getdanoTotalEnemigo()),
-									new PieChart.Data("Aliado", controller2.getdanoTotalAliado()));
-
-					final PieChart chart = new PieChart(pieChartData);
-					chart.setTitle("Daño Total");
-					((Group) scene.getRoot()).getChildren().add(chart);
 
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());
@@ -424,6 +414,25 @@ public class Ventana1Controller {
 		} else if (p6.getVidaActual() <= 100) {
 			progressBar6.setStyle("-fx-accent: orange;");
 		}
+	}
+
+	public void actualizarDanoAliado(int danoAliado) {
+		cantidadDanoAliado+=danoAliado;
+		System.out.println(cantidadDanoAliado);
+		controller3.getDanoAliado(cantidadDanoAliado);
+
+	}
+	public void actualizarDanoEnemigo(int danoEnemigo) {
+		cantidadDanoEnemigo+=danoEnemigo;
+		System.out.println(cantidadDanoEnemigo);
+		controller3.getDanoEnemigo(cantidadDanoEnemigo);
+	}
+	public void Ventana3Controller(Ventana3Controller ventana3Controller) {
+
+		FXMLLoader fxmlLoader = new FXMLLoader();
+		fxmlLoader.setLocation(getClass().getResource("/Ventana3.fxml"));
+		Ventana3Controller a= fxmlLoader.getController();
+		this.controller3 = ventana3Controller;
 	}
 
 }

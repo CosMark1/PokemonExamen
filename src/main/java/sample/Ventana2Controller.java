@@ -65,8 +65,8 @@ public class Ventana2Controller {
 
     private Pokemon pokemones;
     private Ventana1Controller controller;
-    private int cantidadDanoEnemigo;
-    private int cantidadDanoAliado;
+    private int cantidadDanoEnemigoVentana1;
+    private int cantidadDanoAliadoVentana1;
 
 
     @FXML
@@ -110,16 +110,21 @@ public class Ventana2Controller {
         double randomValueEnemigo = min + (max - min) * rd.nextDouble();
 
         Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValueEnemigo));
+        cantidadDanoEnemigoVentana1 += randomValueEnemigo;
+        this.controller.actualizarDanoEnemigo((int) randomValueEnemigo);
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0 ){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
-            cantidadDanoEnemigo += randomValueEnemigo;
+
         }else {
             pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValueAliado));
-            cantidadDanoAliado += randomValueAliado;
+            getdanoTotalAliado((int) randomValueAliado);
+            this.controller.actualizarDanoAliado((int) randomValueAliado);
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
+
+
     }
 
     @FXML
@@ -134,16 +139,22 @@ public class Ventana2Controller {
 
 
         Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((int) (Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-randomValueEnemigo));
+        cantidadDanoEnemigoVentana1 += randomValueEnemigo;
+        this.controller.actualizarDanoEnemigo((int) randomValueEnemigo);
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
-            cantidadDanoEnemigo += randomValueEnemigo;
+
         }else{
             pokemones.setVidaActual((int) (pokemones.getVidaActual() - randomValueAliado));
-            cantidadDanoAliado += randomValueAliado;
+            getdanoTotalAliado((int) randomValueAliado);
+            this.controller.actualizarDanoAliado((int) randomValueAliado);
         }
         enviarPokemon(pokemones);
+
         this.controller.actualizarVidas();
+
+
     }
 
     @FXML
@@ -151,16 +162,21 @@ public class Ventana2Controller {
         cambiar();
 
         Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).setVidaActual((Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()-20));
+        this.controller.actualizarDanoEnemigo(20);
+        cantidadDanoEnemigoVentana1+=20;
         if(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x).getVidaActual()<=0){
             Alert(Ventana1Controller.ArrayPokemonEnemigo.get(Ventana1Controller.x));
             control();
-            cantidadDanoAliado+=20;
+
         }else {
             pokemones.setVidaActual((pokemones.getVidaActual() - 20));
-            cantidadDanoEnemigo+=20;
+            getdanoTotalAliado(20);
+            this.controller.actualizarDanoAliado(20);
         }
         enviarPokemon(pokemones);
         this.controller.actualizarVidas();
+
+
     }
 
     @FXML
@@ -323,15 +339,15 @@ public class Ventana2Controller {
     }
 
     public void setdanoTotalEnemigo(int cantidadDanoEnemigo) {
-        this.cantidadDanoEnemigo = cantidadDanoEnemigo;
+        this.cantidadDanoEnemigoVentana1 = cantidadDanoEnemigo;
     }
-    public int getdanoTotalEnemigo() {
-        return cantidadDanoEnemigo;
+    public void getdanoTotalEnemigo(int dano) {
+        cantidadDanoEnemigoVentana1+= dano;
     }
     public void setdanoTotalAliado(int cantidadDanoAliado) {
-        this.cantidadDanoAliado = cantidadDanoAliado;
+        this.cantidadDanoAliadoVentana1 = cantidadDanoAliado;
     }
-    public int getdanoTotalAliado() {
-        return cantidadDanoEnemigo;
+    public void getdanoTotalAliado(int dano) {
+        cantidadDanoAliadoVentana1+= dano;
     }
 }
