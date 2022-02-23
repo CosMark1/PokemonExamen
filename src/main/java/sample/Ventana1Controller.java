@@ -25,7 +25,7 @@ public class Ventana1Controller {
 	public static Stage stage3;
 	private static int cantidadDanoAliado = 0;
 	private static int cantidadDanoEnemigo = 0;
-	Ventana3Controller controller3;
+	private Ventana3Controller controller3;
 
 	Pokemon p1 = new Pokemon("IvySaur", 40, 200, "Nv 65", "/image/002.png", "/image/ivysaurespaldas.gif");
 	Pokemon p2 = new Pokemon("Charmeleon", 99, 200, "Nv 45", "/image/005.png", "/image/charmeleonespaldas.gif");
@@ -367,21 +367,19 @@ public class Ventana1Controller {
 				stage3.setScene(scene);
 				stage3.show();
 
-
-
 				Ventana3Controller a= fxmlLoader.getController();
 
 				a.controllerEstadisticas(this);
 				a.setdanoTotalAliado(cantidadDanoAliado);
 				a.setdanoTotalEnemigo(cantidadDanoEnemigo);
+				a.getDanoEnemigo(cantidadDanoEnemigo);
+				a.getDanoAliado(cantidadDanoAliado);
 
 
 		} catch (IOException ex) {
 			System.out.println("IO Exception: " + ex.getMessage());
 		}
 	}
-
-
 
 	private void colorVidas(){
 		if (p1.getVidaActual() <= 50) {
@@ -420,14 +418,17 @@ public class Ventana1Controller {
 		cantidadDanoAliado+=danoAliado;
 		System.out.println(cantidadDanoAliado);
 		controller3.getDanoAliado(cantidadDanoAliado);
-
+		controller3.setdanoTotalAliado(cantidadDanoAliado);
 	}
 	public void actualizarDanoEnemigo(int danoEnemigo) {
 		cantidadDanoEnemigo+=danoEnemigo;
 		System.out.println(cantidadDanoEnemigo);
 		controller3.getDanoEnemigo(cantidadDanoEnemigo);
+		controller3.setdanoTotalEnemigo(cantidadDanoEnemigo);
 	}
-
+	public void setController3(Ventana3Controller ventana3Controller) {
+		controller3 = ventana3Controller;
+	}
 
 }
 

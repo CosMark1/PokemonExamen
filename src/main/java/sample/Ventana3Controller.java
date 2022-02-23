@@ -15,7 +15,7 @@ public class Ventana3Controller {
 
     private int totalDanoAliado = 0;
     private int totalDanoEnemigo = 0;
-    private Ventana1Controller controller;
+    private Ventana1Controller controller1;
 
 
     @FXML
@@ -30,10 +30,6 @@ public class Ventana3Controller {
 
         pieChartfuncion();
 
-
-
-
-
     }
 
     public void setdanoTotalEnemigo(int cantidadDanoEnemigo) {
@@ -44,16 +40,18 @@ public class Ventana3Controller {
         this.totalDanoAliado = cantidadDanoAliado;
     }
     public void controllerEstadisticas(Ventana1Controller ventana1Controller){
-        this.controller= ventana1Controller;
+        controller1= ventana1Controller;
+        controller1.setController3(this);
     }
     public void pieChartfuncion(){
 
         Scene scene = new Scene(new Group());
-
+        controller1.actualizarDanoEnemigo(totalDanoEnemigo);
+        controller1.actualizarDanoAliado(totalDanoAliado);
         ObservableList<PieChart.Data> pieChartData =
                 FXCollections.observableArrayList(
                         new PieChart.Data("Aliados", totalDanoAliado),
-                        new PieChart.Data("Enemigos", totalDanoEnemigo));
+                        new PieChart.Data("Enemigos", totalDanoAliado));
 
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle("Dano Total");
@@ -62,12 +60,12 @@ public class Ventana3Controller {
 
         pieChart.setData(pieChartData);
     }
-    public void getDanoAliado(int cantidadDanoAliado) {
-        this.totalDanoAliado = cantidadDanoAliado;
+    public void getDanoAliado(double cantidadDanoAliado) {
+        this.totalDanoAliado = (int) cantidadDanoAliado;
     }
 
-    public void getDanoEnemigo(int cantidadDanoEnemigo) {
-        this.totalDanoEnemigo = cantidadDanoEnemigo;
+    public void getDanoEnemigo(double cantidadDanoEnemigo) {
+        this.totalDanoEnemigo = (int) cantidadDanoEnemigo;
     }
 }
 
