@@ -417,14 +417,12 @@ public class Ventana1Controller {
 	public void actualizarDanoAliado(int danoAliado) {
 		cantidadDanoAliado+=danoAliado;
 		System.out.println(cantidadDanoAliado);
-		controller3.getDanoAliado(cantidadDanoAliado);
-		controller3.setdanoTotalAliado(cantidadDanoAliado);
+
 	}
 	public void actualizarDanoEnemigo(int danoEnemigo) {
 		cantidadDanoEnemigo+=danoEnemigo;
 		System.out.println(cantidadDanoEnemigo);
-		controller3.getDanoEnemigo(cantidadDanoEnemigo);
-		controller3.setdanoTotalEnemigo(cantidadDanoEnemigo);
+
 	}
 	public void setController3(Ventana3Controller ventana3Controller) {
 		controller3 = ventana3Controller;
